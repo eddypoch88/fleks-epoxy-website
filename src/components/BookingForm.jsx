@@ -1,34 +1,52 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function BookingForm() {
   const { t } = useLanguage();
-  
+
   // Provide a safe default using || or checking if t("booking.services") returns an array
   const rawServices = t("booking.services");
   const services = Array.isArray(rawServices) ? rawServices : ["Rumah", "Komersial", "Industri", "Garaj / Gudang"];
-  
+
   const [service, setService] = useState(services[0] || "Rumah");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [sqft, setSqft] = useState(100);
+  const [bookDate, setBookDate] = useState("");
   const [gpsStatus, setGpsStatus] = useState("");
   const [isSent, setIsSent] = useState(false);
   const [btnGpsClass, setBtnGpsClass] = useState("btn-loc");
 
   const WA_NUMBER = "60146211263";
 
+  // Tarikh minimum = hari ini (tak boleh tempah tarikh lepas)
+  const todayStr = new Date().toISOString().split("T")[0];
+
+  // Pre-select servis bila client datang dari card harga (index 0 = Kediaman, 1 = Komersial)
+  useEffect(() => {
+    try {
+      const idx = sessionStorage.getItem("fleks_service_idx");
+      if (idx !== null && services[Number(idx)]) {
+        setService(services[Number(idx)]);
+        sessionStorage.removeItem("fleks_service_idx");
+      }
+    } catch (e) {}
+  }, []);
+
+  const MIN_CHARGE = 1000;
+
   const getPriceEst = (sq) => {
     let base = 25;
-    // Map the selected service string back to logic if needed, but indices are safer
-    // Or we just check index
     const sIndex = services.indexOf(service);
     if (sIndex === 1) base = 32;
     if (sIndex === 2) base = 20;
     if (sIndex === 3) base = 22;
-    return `RM ${(sq * base).toLocaleString()}–${(sq * base * 1.25).toLocaleString()}`;
+    const low = Math.max(MIN_CHARGE, sq * base);
+    const high = Math.max(MIN_CHARGE, Math.round(sq * base * 1.25));
+    const minNote = sq * base < MIN_CHARGE ? " (min)" : "";
+    return `RM ${low.toLocaleString()}–${high.toLocaleString()}${minNote}`;
   };
 
   const getGps = () => {
@@ -55,10 +73,11 @@ export default function BookingForm() {
     
     let msg = `*NEW BOOKING FLEKS*\n\n`;
     msg += `👤 Nama: ${name}\n`;
-    msg += `📞 No Tel: ${phone}\n`;
+    msg += `📞 No Tel: +60${phone}\n`;
     msg += `📍 Lokasi: ${address || t("booking.waMsgLocUnfilled")}\n\n`;
     msg += `🛠 Jenis: ${service}\n`;
     msg += `📐 Saiz Lantai: ${sqft} sq ft\n`;
+    msg += `📅 Tarikh Lawatan: ${bookDate || "Fleksibel / belum pilih"}\n`;
     msg += `💰 Anggaran Harga: ${getPriceEst(sqft)}\n`;
     
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
@@ -103,7 +122,10 @@ export default function BookingForm() {
                 </div>
                 <div className="form-group">
                   <label className="form-label" htmlFor="bPhone">{t("booking.phoneLabel")}</label>
-                  <input className="form-input" id="bPhone" type="tel" placeholder="+60 12-345 6789" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                  <div className="phone-wrap">
+                    <span className="phone-prefix">+60</span>
+                    <input className="form-input phone-input" id="bPhone" type="tel" placeholder="11-2345 6789" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                  </div>
                 </div>
                 <div className="form-group">
                   <div className="form-label" style={{ marginBottom: "6px" }}>{t("booking.locLabel")}</div>
@@ -119,6 +141,17 @@ export default function BookingForm() {
                     📍 {address ? t("booking.gpsGot") : t("booking.gpsBtn")}
                   </button>
                   {gpsStatus && <div style={{ fontSize: "12px", color: address ? "var(--primary)" : "var(--muted)", marginTop: "8px", fontWeight: "500", textAlign: "center" }}>{gpsStatus}</div>}
+                </div>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="bDate">{t("booking.dateLabel")}</label>
+                  <input
+                    className="form-input form-date"
+                    id="bDate"
+                    type="date"
+                    min={todayStr}
+                    value={bookDate}
+                    onChange={(e) => setBookDate(e.target.value)}
+                  />
                 </div>
                 <div className="form-group">
                   <div className="form-label">{t("booking.sizeLabel")}: <span>{sqft} sq ft</span></div>
