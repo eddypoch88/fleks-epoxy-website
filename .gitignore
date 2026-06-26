@@ -29,3 +29,6 @@ yarn-error.log*
 # OS
 .DS_Store
 Thumbs.db
+
+fb-agent/.env
+fb-agent/node_modules/

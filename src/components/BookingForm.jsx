@@ -35,7 +35,7 @@ export default function BookingForm() {
     } catch (e) {}
   }, []);
 
-  const MIN_CHARGE = 1000;
+  const MIN_CHARGE = 950;
 
   const getPriceEst = (sq) => {
     let base = 25;
@@ -56,7 +56,8 @@ export default function BookingForm() {
         (pos) => {
           const lat = pos.coords.latitude.toFixed(6);
           const lng = pos.coords.longitude.toFixed(6);
-          setAddress(`https://waze.com/ul?ll=${lat},${lng}&navigate=yes`);
+          // Store both Waze and Google Maps links
+          setAddress(`Waze: https://waze.com/ul?ll=${lat},${lng}&navigate=yes\n📍 Google Maps: https://www.google.com/maps?q=${lat},${lng}`);
           setBtnGpsClass("btn-loc got");
           setGpsStatus(`✓ ${t("booking.gpsGot")}`);
         },
@@ -74,7 +75,7 @@ export default function BookingForm() {
     let msg = `*NEW BOOKING FLEKS*\n\n`;
     msg += `👤 Nama: ${name}\n`;
     msg += `📞 No Tel: +60${phone}\n`;
-    msg += `📍 Lokasi: ${address || t("booking.waMsgLocUnfilled")}\n\n`;
+    msg += `📍 Lokasi:\n${address || t("booking.waMsgLocUnfilled")}\n\n`;
     msg += `🛠 Jenis: ${service}\n`;
     msg += `📐 Saiz Lantai: ${sqft} sq ft\n`;
     msg += `📅 Tarikh Lawatan: ${bookDate || "Fleksibel / belum pilih"}\n`;
