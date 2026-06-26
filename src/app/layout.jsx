@@ -32,13 +32,20 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ overflowX: "hidden" }}>
       <head>
         <Script src="https://unpkg.com/@phosphor-icons/web" strategy="beforeInteractive" />
       </head>
-      <body className={manrope.className}>{children}</body>
+      <body className={manrope.className} style={{ overflowX: "hidden", position: "relative" }}>{children}</body>
     </html>
   );
 }
