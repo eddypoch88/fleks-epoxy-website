@@ -39,13 +39,19 @@ export const viewport = {
   userScalable: false,
 };
 
+import { LanguageProvider } from "@/context/LanguageContext";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" style={{ overflowX: "hidden" }}>
       <head>
         <Script src="https://unpkg.com/@phosphor-icons/web" strategy="beforeInteractive" />
       </head>
-      <body className={manrope.className} style={{ overflowX: "hidden", position: "relative" }}>{children}</body>
+      <body className={manrope.className} style={{ overflowX: "hidden", position: "relative" }}>
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   );
 }

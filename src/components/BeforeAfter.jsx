@@ -1,8 +1,10 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function BeforeAfter() {
+  const { t } = useLanguage();
   const [sliderPos, setSliderPos] = useState(58);
   const wrapRef = useRef(null);
   const isDragging = useRef(false);
@@ -46,9 +48,9 @@ export default function BeforeAfter() {
     <section id="transform" style={{ background: "var(--bg2)" }}>
       <div className="wrap">
         <div className="sec-head reveal" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
-          <div className="eyebrow">The transformation</div>
-          <h2>From tired tiles to glass-smooth.</h2>
-          <p>Drag the slider to reveal a real FLEKS bathroom makeover in Kota Kinabalu.</p>
+          <div className="eyebrow">{t("ba.eyebrow")}</div>
+          <h2>{t("ba.title")}</h2>
+          <p>{t("ba.subtitle")}</p>
         </div>
         <div 
           className="ba-wrap reveal" 
@@ -59,20 +61,20 @@ export default function BeforeAfter() {
           <img 
             className="ba-img" 
             src="/processed/bathroom-1-after.webp" 
-            alt="Seamless glossy epoxy bathroom floor after FLEKS installation" 
+            alt={t("ba.afterAlt") || "Seamless glossy epoxy bathroom floor after FLEKS installation"} 
           />
           <img 
             className="ba-img ba-top" 
             src="/processed/bathroom-1-before.webp" 
-            alt="Old stained bathroom tiles before epoxy coating"
+            alt={t("ba.beforeAlt") || "Old stained bathroom tiles before epoxy coating"}
             style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
           />
-          <span className="ba-tag ba-before">BEFORE</span>
-          <span className="ba-tag ba-after">AFTER</span>
+          <span className="ba-tag ba-before">{t("ba.before")}</span>
+          <span className="ba-tag ba-after">{t("ba.after")}</span>
           <div className="ba-handle" style={{ left: `${sliderPos}%` }}>
             <div className="ba-knob pulse-anim" style={{ display: "flex", flexDirection: "column", gap: "2px", height: "auto", padding: "10px", borderRadius: "24px" }}>
               <span style={{ fontSize: "16px", lineHeight: "1" }}>⇔</span>
-              <span style={{ fontSize: "9px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px" }}>Tarik</span>
+              <span style={{ fontSize: "9px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("ba.drag")}</span>
             </div>
           </div>
         </div>

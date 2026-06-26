@@ -1,8 +1,10 @@
+"use client";
+import { useLanguage } from "@/context/LanguageContext";
+
 export default function WhatsAppFloat() {
+  const { t } = useLanguage();
   const WA_NUMBER = "60146211263";
-  const waGeneral = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
-    "Hi FLEKS! Saya nak tanya pasal epoxy flooring di Kota Kinabalu."
-  )}`;
+  const waGeneral = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(t("header.waMsg"))}`;
 
   return (
     <a 

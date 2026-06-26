@@ -1,10 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { locale, setLocale, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,9 +17,7 @@ export default function Header() {
   }, []);
 
   const WA_NUMBER = "60146211263";
-  const waGeneral = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
-    "Hi FLEKS! Saya nak tanya pasal epoxy flooring di Kota Kinabalu."
-  )}`;
+  const waGeneral = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(t("header.waMsg"))}`;
 
   return (
     <header id="hdr" className={scrolled ? "scrolled" : ""}>
@@ -26,14 +26,21 @@ export default function Header() {
           FLEKS <span className="dot"></span>
         </Link>
         <nav className={`nav-links ${menuOpen ? "open" : ""}`} id="navLinks">
-          <Link href="#why" onClick={() => setMenuOpen(false)}>Why Us</Link>
-          <Link href="#gallery" onClick={() => setMenuOpen(false)}>Gallery</Link>
-          <Link href="#pricing" onClick={() => setMenuOpen(false)}>Pricing</Link>
-          <Link href="#reviews" onClick={() => setMenuOpen(false)}>Reviews</Link>
-          <Link href="#faq" onClick={() => setMenuOpen(false)}>FAQ</Link>
-          <Link href="#contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+          <Link href="#why" onClick={() => setMenuOpen(false)}>{t("header.why")}</Link>
+          <Link href="#gallery" onClick={() => setMenuOpen(false)}>{t("header.gallery")}</Link>
+          <Link href="#pricing" onClick={() => setMenuOpen(false)}>{t("header.pricing")}</Link>
+          <Link href="#reviews" onClick={() => setMenuOpen(false)}>{t("header.reviews")}</Link>
+          <Link href="#faq" onClick={() => setMenuOpen(false)}>{t("header.faq")}</Link>
+          <Link href="#contact" onClick={() => setMenuOpen(false)}>{t("header.contact")}</Link>
         </nav>
         <div className="nav-cta">
+          {/* Language Switcher */}
+          <div className="lang-switch">
+            <button className={locale === "en" ? "active" : ""} onClick={() => setLocale("en")}>EN</button>
+            <button className={locale === "ms" ? "active" : ""} onClick={() => setLocale("ms")}>MS</button>
+            <button className={locale === "zh" ? "active" : ""} onClick={() => setLocale("zh")}>中</button>
+          </div>
+
           <a
             className="btn btn-wa"
             id="waNav"
@@ -54,7 +61,7 @@ export default function Header() {
             WhatsApp
           </a>
           <Link className="btn btn-primary" href="#contact">
-            Book free visit
+            {t("header.btnBook")}
           </Link>
           <div
             className="hamb"
