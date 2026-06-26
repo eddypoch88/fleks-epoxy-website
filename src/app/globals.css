@@ -236,9 +236,14 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;margin-top:30px}
   .hamb{display:flex}
   .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;
     background:rgba(255,255,255,.98);padding:24px;gap:18px;border-bottom:1px solid var(--line);box-shadow:0 12px 30px rgba(13,30,45,.08)}
-  .price-grid,.rev-grid,.gal-grid{grid-template-columns:1fr}
+  .price-grid,.rev-grid{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr}
-  .gal-grid{grid-template-columns:1fr 1fr}
+  
+  /* Horizontal Swipe Carousel for Gallery */
+  .gal-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding-bottom:24px;margin:0 -24px;padding-left:24px;padding-right:24px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .gal-grid::-webkit-scrollbar{display:none}
+  .gal-item{flex:0 0 82%;scroll-snap-align:center}
+
   .ba-wrap{aspect-ratio:1/1}
   .hero-img{aspect-ratio:4/3}
   .cta-box{padding:38px 22px}
