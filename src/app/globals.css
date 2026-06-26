@@ -171,14 +171,14 @@ h2{font-size:clamp(30px,4.4vw,46px);font-weight:800;letter-spacing:-1px;line-hei
 .btn-loc:hover{border-color:var(--accent);color:var(--accent)}
 .btn-loc.got{border-color:#22c55e;color:#16a34a;background:#f0fdf4}
 
-.size-row{display:flex;align-items:center;gap:14px}
-.size-row input[type=range]{flex:1;accent-color:var(--accent);height:6px;cursor:pointer}
-.size-val{min-width:80px;text-align:right;font-weight:800;font-size:18px}
+.size-row{display:flex;align-items:center;gap:12px}
+.size-row input[type=range]{flex:1;accent-color:var(--accent);height:6px;cursor:pointer;min-width:0}
+.size-val{min-width:70px;text-align:right;font-weight:800;font-size:16px;white-space:nowrap}
 
 .price-est{background:var(--accent-soft);border:1px solid rgba(0,179,164,.25);border-radius:14px;
-  padding:16px 20px;margin-top:20px;display:flex;justify-content:space-between;align-items:center}
+  padding:16px 20px;margin-top:20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .pe-label{font-size:13px;color:var(--muted)}
-.pe-range{font-size:22px;font-weight:800;color:var(--accent2)}
+.pe-range{font-size:20px;font-weight:800;color:var(--accent2);white-space:nowrap}
 
 .btn-submit{width:100%;padding:16px;border-radius:14px;background:var(--accent);color:#fff;
   border:none;font-size:17px;font-weight:800;cursor:pointer;transition:.25s;margin-top:6px;
@@ -250,4 +250,12 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;margin-top:30px}
   section{padding:64px 0}
   .hero.golden-style{padding:120px 0 200px; min-height:100vh}
   .foot-grid{grid-template-columns:1fr}
+
+  /* Fix booking form on mobile */
+  .size-row{flex-wrap:nowrap;gap:8px}
+  .size-val{font-size:14px;min-width:60px}
+  .price-est{flex-direction:column;align-items:flex-start;gap:8px}
+  .pe-range{font-size:22px}
+  .chips{gap:6px}
+  .chip{padding:8px 14px;font-size:13px}
 }
