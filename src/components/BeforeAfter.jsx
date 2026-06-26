@@ -70,7 +70,10 @@ export default function BeforeAfter() {
           <span className="ba-tag ba-before">BEFORE</span>
           <span className="ba-tag ba-after">AFTER</span>
           <div className="ba-handle" style={{ left: `${sliderPos}%` }}>
-            <div className="ba-knob">⇔</div>
+            <div className="ba-knob pulse-anim" style={{ display: "flex", flexDirection: "column", gap: "2px", height: "auto", padding: "10px", borderRadius: "24px" }}>
+              <span style={{ fontSize: "16px", lineHeight: "1" }}>⇔</span>
+              <span style={{ fontSize: "9px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px" }}>Tarik</span>
+            </div>
           </div>
         </div>
       </div>
