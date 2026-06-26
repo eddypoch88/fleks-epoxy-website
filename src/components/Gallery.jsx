@@ -24,31 +24,39 @@ export default function Gallery() {
   const gridRef                     = useRef(null);
   const itemRefs                    = useRef([]);
 
-  // ── Intersection Observer: detect which card is most centred ──
+  // ── Scroll listener: detect which wrapper is closest to grid centre ──
   useEffect(() => {
     const grid = gridRef.current;
     if (!grid) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // pick the entry with the highest intersectionRatio
-        let best = null;
-        entries.forEach((entry) => {
-          if (!best || entry.intersectionRatio > best.intersectionRatio) best = entry;
-        });
-        if (best && best.intersectionRatio > 0) {
-          const idx = Number(best.target.dataset.idx);
-          setActiveIdx(idx);
-        }
-      },
-      {
-        root: grid,
-        threshold: Array.from({ length: 21 }, (_, i) => i / 20), // 0, 0.05, 0.10 … 1
-      }
-    );
+    let raf = null;
 
-    itemRefs.current.forEach((el) => { if (el) observer.observe(el); });
-    return () => observer.disconnect();
+    const update = () => {
+      const gridCentre = grid.scrollLeft + grid.clientWidth / 2;
+      let bestIdx = 0;
+      let bestDist = Infinity;
+
+      itemRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const elCentre = el.offsetLeft + el.offsetWidth / 2;
+        const dist = Math.abs(elCentre - gridCentre);
+        if (dist < bestDist) { bestDist = dist; bestIdx = i; }
+      });
+
+      setActiveIdx(bestIdx);
+    };
+
+    const onScroll = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    };
+
+    grid.addEventListener("scroll", onScroll, { passive: true });
+    update(); // set initial active on mount
+    return () => {
+      grid.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, [items]);
 
   // ── ESC to close lightbox ──
@@ -89,31 +97,23 @@ export default function Gallery() {
                   key={i}
                   ref={(el) => (itemRefs.current[i] = el)}
                   data-idx={i}
-                  className="gal-item reveal"
-                  onClick={() => setLightbox(i)}
-                  style={{
-                    cursor: "zoom-in",
-                    transition: "transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s, filter .4s, opacity .4s",
-                    transform: isActive ? "scale(1.06) translateY(-6px)" : "scale(0.93) translateY(0px)",
-                    boxShadow: isActive
-                      ? "0 24px 60px rgba(0,179,164,.22), 0 8px 24px rgba(13,30,45,.18)"
-                      : "0 4px 16px rgba(13,30,45,.08)",
-                    filter: isActive ? "brightness(1.04)" : "brightness(0.62)",
-                    opacity: isActive ? 1 : 0.8,
-                  }}
+                  className="gal-item-wrapper reveal"
                 >
-                  {/* "Tap to view" hint on active card */}
-                  {isActive && (
+                  <div
+                    className={`gal-item ${isActive ? "active" : ""}`}
+                    onClick={() => setLightbox(i)}
+                  >
+                    {/* "Tap to view" hint on active card */}
                     <div className="gal-tap-hint">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14">
                         <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
                       </svg>
                       {t("gallery.tapToView")}
                     </div>
-                  )}
-                  <img src={item.src} alt={item.alt} loading="lazy" />
-                  <div className="gal-cap" style={{ opacity: isActive ? 1 : 0, transition: "opacity .4s" }}>
-                    {item.cap}
+                    <img src={item.src} alt={item.alt} loading="lazy" />
+                    <div className="gal-cap">
+                      {item.cap}
+                    </div>
                   </div>
                 </div>
               );

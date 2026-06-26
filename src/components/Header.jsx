@@ -1,12 +1,14 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const { locale, setLocale, t } = useLanguage();
+  const langRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +16,16 @@ export default function Header() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const clickOutside = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", clickOutside);
+    return () => document.removeEventListener("mousedown", clickOutside);
   }, []);
 
   const WA_NUMBER = "60146211263";
@@ -34,11 +46,40 @@ export default function Header() {
           <Link href="#contact" onClick={() => setMenuOpen(false)}>{t("header.contact")}</Link>
         </nav>
         <div className="nav-cta">
-          {/* Language Switcher */}
-          <div className="lang-switch">
-            <button className={locale === "en" ? "active" : ""} onClick={() => setLocale("en")}>EN</button>
-            <button className={locale === "ms" ? "active" : ""} onClick={() => setLocale("ms")}>MS</button>
-            <button className={locale === "zh" ? "active" : ""} onClick={() => setLocale("zh")}>中</button>
+          {/* Collapsible Language Selector */}
+          <div className="lang-dropdown" ref={langRef}>
+            <button 
+              className="lang-trigger" 
+              onClick={() => setLangOpen(!langOpen)}
+              type="button"
+              aria-label="Select Language"
+            >
+              <i className="ph ph-globe"></i>
+              <span>{locale === "en" ? "EN" : locale === "ms" ? "MS" : "中"}</span>
+              <i className={`ph ph-caret-down caret-icon ${langOpen ? "open" : ""}`}></i>
+            </button>
+            {langOpen && (
+              <div className="lang-menu">
+                <button 
+                  className={locale === "en" ? "active" : ""} 
+                  onClick={() => { setLocale("en"); setLangOpen(false); }}
+                >
+                  English (EN)
+                </button>
+                <button 
+                  className={locale === "ms" ? "active" : ""} 
+                  onClick={() => { setLocale("ms"); setLangOpen(false); }}
+                >
+                  Bahasa Melayu (MS)
+                </button>
+                <button 
+                  className={locale === "zh" ? "active" : ""} 
+                  onClick={() => { setLocale("zh"); setLangOpen(false); }}
+                >
+                  中文 (ZH)
+                </button>
+              </div>
+            )}
           </div>
 
           <a
