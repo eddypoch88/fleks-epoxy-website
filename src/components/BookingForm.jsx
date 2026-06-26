@@ -30,9 +30,9 @@ export default function BookingForm() {
         (pos) => {
           const lat = pos.coords.latitude.toFixed(6);
           const lng = pos.coords.longitude.toFixed(6);
-          setAddress(`https://www.google.com/maps?q=${lat},${lng}`);
+          setAddress(`https://waze.com/ul?ll=${lat},${lng}&navigate=yes`);
           setBtnGpsClass("btn-loc got");
-          setGpsStatus("✓ Lokasi Google Maps ditemui");
+          setGpsStatus("✓ Lokasi Waze ditemui");
         },
         () => setGpsStatus("❌ Gagal dapatkan lokasi")
       );
@@ -98,17 +98,38 @@ export default function BookingForm() {
                   <input className="form-input" id="bPhone" type="tel" placeholder="+60 12-345 6789" value={phone} onChange={(e) => setPhone(e.target.value)} />
                 </div>
                 <div className="form-group">
-                  <div className="form-label">Lokasi awak</div>
-                  <div className="loc-row">
-                    <input className="form-input" id="bAddr" type="text" placeholder="Alamat atau kawasan (cth: Likas, KK)" value={address} onChange={(e) => setAddress(e.target.value)} />
-                    <button className={btnGpsClass} type="button" onClick={getGps}>📍 GPS</button>
-                  </div>
-                  {gpsStatus && <div style={{ fontSize: "12px", color: "var(--muted)", marginTop: "6px" }}>{gpsStatus}</div>}
+                  <div className="form-label" style={{ marginBottom: "6px" }}>Lokasi tapak projek</div>
+                  <p style={{ fontSize: "12px", color: "var(--muted)", marginBottom: "12px", lineHeight: "1.5" }}>
+                    Bagi memastikan lokasi anda berada dalam kawasan liputan kami (Kota Kinabalu & Sabah), sila kongsikan pin lokasi tapak projek.
+                  </p>
+                  <button 
+                    className={btnGpsClass} 
+                    type="button" 
+                    onClick={getGps}
+                    style={{ width: "100%", padding: "12px", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px" }}
+                  >
+                    📍 {address ? "Lokasi Berjaya Direkodkan" : "Tekan untuk Kongsi Lokasi (GPS)"}
+                  </button>
+                  {gpsStatus && <div style={{ fontSize: "12px", color: address ? "var(--primary)" : "var(--muted)", marginTop: "8px", fontWeight: "500", textAlign: "center" }}>{gpsStatus}</div>}
                 </div>
                 <div className="form-group">
                   <div className="form-label">Anggaran saiz lantai: <span>{sqft} sq ft</span></div>
                   <div className="size-row">
+                    <button 
+                      type="button" 
+                      onClick={() => setSqft(Math.max(30, sqft - 1))}
+                      style={{ width: "32px", height: "32px", borderRadius: "50%", border: "1px solid var(--line)", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", fontWeight: "600", cursor: "pointer", color: "var(--muted)" }}
+                    >
+                      -
+                    </button>
                     <input type="range" min="30" max="1000" value={sqft} step="1" onChange={(e) => setSqft(Number(e.target.value))} />
+                    <button 
+                      type="button" 
+                      onClick={() => setSqft(Math.min(1000, sqft + 1))}
+                      style={{ width: "32px", height: "32px", borderRadius: "50%", border: "1px solid var(--line)", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", fontWeight: "600", cursor: "pointer", color: "var(--muted)" }}
+                    >
+                      +
+                    </button>
                     <div className="size-val accent">{sqft} sq ft</div>
                   </div>
                   <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", color: "var(--muted2)", marginTop: "4px" }}>

@@ -7,17 +7,31 @@ export default function Hero() {
   )}`;
 
   return (
-    <section className="hero">
-      <div className="glow"></div>
-      <div className="wrap hero-grid">
-        <div className="reveal in">
+    <section className="hero golden-style">
+      <div className="hero-bg">
+        <picture>
+          <source media="(max-width: 760px)" srcSet="/processed/hero-epoxy-golden.png" type="image/png" />
+          <source media="(min-width: 761px)" srcSet="/processed/hero-epoxy-golden.png" type="image/png" />
+          <img
+            src="/processed/hero-epoxy-golden.png"
+            alt="Stunning premium epoxy flakes floor in Kota Kinabalu by FLEKS"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </picture>
+        <div className="hero-overlay"></div>
+      </div>
+      
+      <div className="wrap hero-content relative z-10">
+        <div className="reveal in hero-text-box">
           <div className="badge">
             <b>FREE VISIT</b> Kota Kinabalu &middot; No obligation
           </div>
-          <h1>
+          <h1 style={{ maxWidth: "600px" }}>
             Floors that<br />look like <span className="accent">glass.</span>
           </h1>
-          <p className="lead">
+          <p className="lead" style={{ maxWidth: "500px" }}>
             Seamless, glossy, ultra-durable epoxy flooring for bathrooms, homes, showrooms &amp; factories across Kota Kinabalu &amp; Sabah. 2–3 day install. Guaranteed 5 years.
           </p>
           <div className="hero-btns">
@@ -43,7 +57,7 @@ export default function Hero() {
               WhatsApp us
             </a>
           </div>
-          <div className="hero-stats">
+          <div className="hero-stats" style={{ maxWidth: "500px" }}>
             <div>
               <div className="hs-n">1,200+</div>
               <div className="hs-l">Floors completed</div>
@@ -57,38 +71,14 @@ export default function Hero() {
               <div className="hs-l">In the industry</div>
             </div>
           </div>
-        </div>
-        <div className="hero-media reveal in">
-          <picture>
-            <source media="(max-width: 760px)" srcSet="/processed/hero-epoxy-mobile.webp" type="image/webp" />
-            <source media="(min-width: 761px)" srcSet="/processed/hero-epoxy-desktop.webp" type="image/webp" />
-            <img
-              className="hero-img"
-              src="/processed/hero-epoxy-desktop.webp"
-              alt="Stunning premium epoxy flakes floor in Kota Kinabalu by FLEKS"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-              width={1400}
-              height={788}
-            />
-          </picture>
-          <div className="float-card fc-top">
+          
+          <div className="float-card fc-top" style={{ position: "relative", marginTop: "40px", display: "inline-flex", top: 0, right: 0, left: 0 }}>
             <div className="fc-ico">
               <i className="ph-fill ph-trophy" style={{ color: "#ffb700" }}></i>
             </div>
             <div>
               <div className="fc-t">4.9 ★ Google</div>
               <div className="fc-s">180+ reviews</div>
-            </div>
-          </div>
-          <div className="float-card fc-bot">
-            <div className="fc-ico">
-              <i className="ph-fill ph-sparkle" style={{ color: "var(--accent)" }}></i>
-            </div>
-            <div>
-              <div className="fc-t">Installed in 2–3 days</div>
-              <div className="fc-s">Kota Kinabalu &amp; Sabah</div>
             </div>
           </div>
         </div>
