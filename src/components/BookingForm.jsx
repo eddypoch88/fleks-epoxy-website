@@ -187,13 +187,11 @@ export default function BookingForm() {
                     <span>{t("booking.sizeS1")}</span><span>{t("booking.sizeS2")}</span>
                   </div>
                 </div>
-                <div className="price-est" style={{ flexDirection: "column", gap: "10px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-                    <div>
-                      <div className="pe-label">{t("booking.priceLabel")}</div>
-                      <div style={{ fontSize: "12px", color: "var(--muted2)", marginTop: "2px" }}>{t("booking.priceDesc")}</div>
-                    </div>
-                    <div className="pe-range">{getPriceBreakdown(sqft).range}</div>
+                <div className="price-est" style={{ flexDirection: "column", alignItems: "stretch", gap: "12px" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+                    <div className="pe-label">{t("booking.priceLabel")}</div>
+                    <div style={{ fontSize: "12px", color: "var(--muted2)" }}>{t("booking.priceDesc")}</div>
+                    <div className="pe-range" style={{ marginTop: "6px", whiteSpace: "normal" }}>{getPriceBreakdown(sqft).range}</div>
                   </div>
                   <div style={{ background: "rgba(0,179,164,0.07)", borderRadius: "8px", padding: "10px 12px", fontSize: "12px", color: "var(--muted)", lineHeight: "1.6" }}>
                     <div style={{ fontWeight: "600", color: "var(--accent)", marginBottom: "4px" }}>{t("booking.calcTitle")}</div>
