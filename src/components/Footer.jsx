@@ -30,7 +30,7 @@ export default function Footer() {
                 <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.554 4.122 1.522 5.854L.057 23.882l6.19-1.438A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.371l-.36-.213-3.676.853.88-3.574-.234-.369A9.818 9.818 0 1112 21.818z" />
               </svg>WhatsApp
             </a>
-            <a href="mailto:hello@fleks.my">✉ hello@fleks.my</a>
+            <a href="mailto:business@fleksepoxy.com">✉ business@fleksepoxy.com</a>
             <a href="#">📍 Kota Kinabalu, Sabah</a>
           </div>
         </div>
