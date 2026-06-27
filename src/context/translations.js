@@ -10,12 +10,12 @@ export const translations = {
       titleLine1: "Floors that",
       titleLine2: "look like ",
       titleHighlight: "glass.",
-      subtitle: "Seamless, glossy, ultra-durable epoxy flooring for bathrooms, homes, showrooms & factories across Kota Kinabalu & Sabah. 2–3 day install. Guaranteed 5 years.",
+      subtitle: "Seamless, glossy, ultra-durable epoxy flooring for bathrooms, homes, showrooms & factories across Kota Kinabalu & Sabah. 2–3 day install. Up to 2-year workmanship warranty.",
       btnBook: "Book free site visit →",
       btnWa: "WhatsApp us",
-      stats: { n1: "1,200+", l1: "Floors completed", n2: "4.9 ★", l2: "Google rating", n3: "12 yrs", l3: "In the industry" },
-      fcT: "4.9 ★ Google",
-      fcS: "180+ reviews"
+      stats: { n1: "Free", l1: "Site visit & quote", n2: "2–3 days", l2: "Fast install", n3: "Up to 2yr", l3: "Workmanship warranty" },
+      fcT: "100% Local",
+      fcS: "Sabah-based team"
     },
     booking: {
       eyebrow: "Free site visit", title: "Let's look at your space.", subtitle: "Fill the form, share your location — we'll come measure, advise & quote accurately. Free, no pressure.",
@@ -31,6 +31,10 @@ export const translations = {
       dateLabel: "Preferred visit date",
       sizeLabel: "Estimated floor size", sizeS1: "Small bathroom", sizeS2: "Large home / Factory",
       priceLabel: "Estimated price", priceDesc: "Accurate price after free visit",
+      unit: "sq ft", calcTitle: "📐 How we calculate:", calcMinSuffix: "Minimum charge applies",
+      warranty1: "1-year warranty", warranty2: "2-year warranty",
+      calcMinNote1: "✅ Minimum charge", calcMinNote2: "— covers all materials (epoxy resin, primer, sealant), labour, surface prep &",
+      calcInclNote: "✅ Includes epoxy resin, primer, sealant, surface prep, labour &",
       btnSubmit: "Send to our WhatsApp", submitDesc: "WhatsApp will open — with your name, number, location & price estimate",
       alertName: "Please enter your name", alertPhone: "Please enter your phone number",
       waMsgLocUnfilled: "Not filled", sentTitle: "WhatsApp opened!", sentDesc: "Send the message — we'll confirm the visit in a few hours.", btnNew: "New form"
@@ -66,11 +70,11 @@ export const translations = {
       before: "BEFORE", after: "AFTER", drag: "DRAG"
     },
     reviews: {
-      eyebrow: "Testimonials", title: "Real talk from real customers.", subtitle: "Rated 4.9 ★ across 180+ Google reviews in Sabah.",
+      eyebrow: "Early bird offer", title: "Be one of our first customers.", subtitle: "We're just starting out in Kota Kinabalu & Sabah — so we're offering special launch pricing for our first projects. Real quality, honest price.",
       items: [
-        { q: "\"Our kitchen went from cracked tiles to a showpiece. Done in 2 days, zero mess.\"", n: "Sarah Lim", r: "Homeowner, Kota Kinabalu" },
-        { q: "\"They've done 3 of our outlets now. Consistent, fast, and always professional.\"", n: "Farid Zain", r: "F&B Operator, Penampang" },
-        { q: "\"Warehouse floor survived 2 years of forklifts. Still glossy, not a single crack.\"", n: "Vincent Tan", r: "Logistics Manager, Inanam" }
+        { h: "Launch pricing", s: "Special intro rates for our first projects across KK & Sabah. Lock it in early." },
+        { h: "Free site visit", s: "We come to you to measure, advise & quote — zero obligation, no pressure." },
+        { h: "Up to 2-year warranty", s: "Workmanship guarantee on every floor we install. We stand by our work." }
       ]
     },
     faq: {
@@ -102,9 +106,9 @@ export const translations = {
       subtitle: "Lantai epoxy tanpa jahitan, berkilat dan tahan lasak untuk bilik air, rumah, pejabat & kilang di sekitar Kota Kinabalu & Sabah. Siap dalam 2–3 hari. Jaminan hingga 2 tahun.",
       btnBook: "Tempah lawatan percuma →",
       btnWa: "WhatsApp kami",
-      stats: { n1: "1,200+", l1: "Lantai siap", n2: "4.9 ★", l2: "Rating Google", n3: "12 thn", l3: "Pengalaman" },
-      fcT: "4.9 ★ Google",
-      fcS: "180+ ulasan"
+      stats: { n1: "Percuma", l1: "Lawatan & sebut harga", n2: "2–3 hari", l2: "Pemasangan pantas", n3: "Hingga 2thn", l3: "Jaminan kerja" },
+      fcT: "100% Tempatan",
+      fcS: "Pasukan Sabah"
     },
     booking: {
       eyebrow: "Lawatan tapak percuma", title: "Jom tengok ruang awak.", subtitle: "Isi borang, share lokasi rumah — kami datang ukur, bagi nasihat & sebut harga tepat. Percuma, tiada tekanan.",
@@ -120,6 +124,10 @@ export const translations = {
       dateLabel: "Tarikh lawatan pilihan",
       sizeLabel: "Anggaran saiz lantai", sizeS1: "Bilik mandi kecil", sizeS2: "Rumah besar / Kilang",
       priceLabel: "Anggaran harga", priceDesc: "Harga tepat selepas lawatan percuma",
+      unit: "kps", calcTitle: "📐 Cara kami kira:", calcMinSuffix: "Caj minimum dikenakan",
+      warranty1: "jaminan 1 tahun", warranty2: "jaminan 2 tahun",
+      calcMinNote1: "✅ Caj minimum", calcMinNote2: "— meliputi semua bahan (resin epoxy, primer, sealant), upah kerja, penyediaan permukaan &",
+      calcInclNote: "✅ Termasuk resin epoxy, primer, sealant, penyediaan permukaan, upah kerja &",
       btnSubmit: "Hantar ke WhatsApp kami", submitDesc: "Mesej WhatsApp akan terbuka — dengan nama, no, lokasi & anggaran harga awak",
       alertName: "Sila masukkan nama", alertPhone: "Sila masukkan no telefon",
       waMsgLocUnfilled: "Belum diisi", sentTitle: "WhatsApp terbuka!", sentDesc: "Hantar mesej tu — kami akan confirm lawatan dalam masa beberapa jam.", btnNew: "Borang baru"
@@ -155,11 +163,11 @@ export const translations = {
       before: "SEBELUM", after: "SELEPAS", drag: "TARIK"
     },
     reviews: {
-      eyebrow: "Testimoni", title: "Pendapat ikhlas dari pelanggan.", subtitle: "Dinilai 4.9 ★ melalui 180+ ulasan Google di Sabah.",
+      eyebrow: "Tawaran perdana", title: "Jadi pelanggan pertama kami.", subtitle: "Kami baru bermula di Kota Kinabalu & Sabah — jadi kami tawarkan harga istimewa untuk projek terawal. Kerja berkualiti, harga jujur.",
       items: [
-        { q: "\"Dapur kami berubah dari jubin retak ke lantai cantik. Siap dalam 2 hari, tiada habuk langsung.\"", n: "Sarah Lim", r: "Pemilik Rumah, Kota Kinabalu" },
-        { q: "\"Mereka dah buat 3 cawangan kami. Hasil konsisten, pantas, dan sentiasa profesional.\"", n: "Farid Zain", r: "Pengusaha F&B, Penampang" },
-        { q: "\"Lantai kilang tahan forklift selama 2 tahun. Masih berkilat, tiada rekahan langsung.\"", n: "Vincent Tan", r: "Pengurus Logistik, Inanam" }
+        { h: "Harga pelancaran", s: "Kadar istimewa untuk projek pertama kami di seluruh KK & Sabah. Tempah awal." },
+        { h: "Lawatan tapak percuma", s: "Kami datang ukur, nasihat & beri sebut harga — tanpa obligasi, tiada paksaan." },
+        { h: "Jaminan hingga 2 tahun", s: "Jaminan kerja untuk setiap lantai yang kami pasang. Kami yakin dengan kerja kami." }
       ]
     },
     faq: {
@@ -191,9 +199,9 @@ export const translations = {
       subtitle: "无缝、光泽、超耐用的环氧树脂地板，适用于亚庇及沙巴各地的浴室、住宅、展厅及工厂。2-3天安装。最高2年保修。",
       btnBook: "免费上门估价 →",
       btnWa: "WhatsApp 我们",
-      stats: { n1: "1,200+", l1: "完成项目", n2: "4.9 ★", l2: "谷歌评分", n3: "12 年", l3: "行业经验" },
-      fcT: "4.9 ★ Google",
-      fcS: "180+ 客户评价"
+      stats: { n1: "免费", l1: "上门测量报价", n2: "2–3 天", l2: "快速安装", n3: "最高2年", l3: "施工质保" },
+      fcT: "100% 本地",
+      fcS: "沙巴团队"
     },
     booking: {
       eyebrow: "免费上门估价", title: "让我们看看您的场地。", subtitle: "填写表单，分享位置 — 我们会上门测量、提供建议并准确报价。完全免费，无任何压力。",
@@ -209,6 +217,10 @@ export const translations = {
       dateLabel: "首选上门日期",
       sizeLabel: "预计面积", sizeS1: "小浴室", sizeS2: "大房子 / 工厂",
       priceLabel: "预计价格", priceDesc: "免费上门估价后的准确价格",
+      unit: "平方英尺", calcTitle: "📐 价格如何计算：", calcMinSuffix: "适用最低收费",
+      warranty1: "1年质保", warranty2: "2年质保",
+      calcMinNote1: "✅ 最低收费", calcMinNote2: "— 包含所有材料（环氧树脂、底漆、密封剂）、人工、表面处理及",
+      calcInclNote: "✅ 包含环氧树脂、底漆、密封剂、表面处理、人工及",
       btnSubmit: "发送至我们的 WhatsApp", submitDesc: "将打开 WhatsApp — 包含您的名字、电话、位置及预计价格",
       alertName: "请输入您的名字", alertPhone: "请输入您的电话号码",
       waMsgLocUnfilled: "未填写", sentTitle: "WhatsApp 已打开！", sentDesc: "请发送信息 — 我们将在几小时内确认上门时间。", btnNew: "新表单"
@@ -244,11 +256,11 @@ export const translations = {
       before: "改造前", after: "改造后", drag: "拖动"
     },
     reviews: {
-      eyebrow: "客户评价", title: "来自真实客户的声音。", subtitle: "在沙巴超过180条Google评价中获得4.9 ★。",
+      eyebrow: "早鸟优惠", title: "成为我们的首批客户。", subtitle: "我们刚在亚庇及沙巴起步——为首批项目提供特别开业优惠。优质施工，诚实价格。",
       items: [
-        { q: "\"我们的厨房从破裂的瓷砖变成了展示品。2天完工，没有任何弄脏。\"", n: "Sarah Lim", r: "亚庇房主" },
-        { q: "\"他们已经为我们的3家分店做过地板。质量一致、速度快且始终专业。\"", n: "Farid Zain", r: "兵南邦餐饮业者" },
-        { q: "\"仓库地板承受了叉车2年的使用，依然光亮，没有一条裂缝。\"", n: "Vincent Tan", r: "下南南物流经理" }
+        { h: "开业优惠价", s: "亚庇及沙巴首批项目享特别优惠价。趁早预订。" },
+        { h: "免费上门测量", s: "我们上门测量、提供建议与报价——无任何义务，绝不强迫。" },
+        { h: "最高2年质保", s: "每一个施工地板均提供质保。我们对自己的工作有信心。" }
       ]
     },
     faq: {

@@ -44,11 +44,14 @@ export default function BookingForm() {
     const low = isMin ? MIN_CHARGE : raw;
     const high = Math.round(low * 1.08);
     const range = `RM ${low.toLocaleString()}–${high.toLocaleString()}`;
+    const unit = t("booking.unit");
     const breakdown = isMin
-      ? `${sq} sq ft × RM${base} = RM${raw} → Minimum charge applies`
-      : `${sq} sq ft × RM${base}/sq ft = RM${raw.toLocaleString()}`;
+      ? `${sq} ${unit} × RM${base} = RM${raw} → ${t("booking.calcMinSuffix")}`
+      : `${sq} ${unit} × RM${base}/${unit} = RM${raw.toLocaleString()}`;
     return { range, breakdown, isMin };
   };
+
+  const warrantyLabel = () => services.indexOf(service) === 1 ? t("booking.warranty2") : t("booking.warranty1");
 
   const getPriceEst = (sq) => {
     const { range, isMin } = getPriceBreakdown(sq);
@@ -83,7 +86,7 @@ export default function BookingForm() {
     msg += `📞 No Tel: +60${phone}\n`;
     msg += `📍 Lokasi:\n${address || t("booking.waMsgLocUnfilled")}\n\n`;
     msg += `🛠 Jenis: ${service}\n`;
-    msg += `📐 Saiz Lantai: ${sqft} sq ft\n`;
+    msg += `📐 Saiz Lantai: ${sqft} ${t("booking.unit")}\n`;
     msg += `📅 Tarikh Lawatan: ${bookDate || "Fleksibel / belum pilih"}\n`;
     msg += `💰 Anggaran Harga: ${getPriceEst(sqft)}\n`;
     
@@ -161,7 +164,7 @@ export default function BookingForm() {
                   />
                 </div>
                 <div className="form-group">
-                  <div className="form-label">{t("booking.sizeLabel")}: <span>{sqft} sq ft</span></div>
+                  <div className="form-label">{t("booking.sizeLabel")}: <span>{sqft} {t("booking.unit")}</span></div>
                   <div className="size-row">
                     <button 
                       type="button" 
@@ -178,7 +181,7 @@ export default function BookingForm() {
                     >
                       +
                     </button>
-                    <div className="size-val accent">{sqft} sq ft</div>
+                    <div className="size-val accent">{sqft} {t("booking.unit")}</div>
                   </div>
                   <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", color: "var(--muted2)", marginTop: "4px" }}>
                     <span>{t("booking.sizeS1")}</span><span>{t("booking.sizeS2")}</span>
@@ -193,12 +196,12 @@ export default function BookingForm() {
                     <div className="pe-range">{getPriceBreakdown(sqft).range}</div>
                   </div>
                   <div style={{ background: "rgba(0,179,164,0.07)", borderRadius: "8px", padding: "10px 12px", fontSize: "12px", color: "var(--muted)", lineHeight: "1.6" }}>
-                    <div style={{ fontWeight: "600", color: "var(--accent)", marginBottom: "4px" }}>📐 How we calculate:</div>
+                    <div style={{ fontWeight: "600", color: "var(--accent)", marginBottom: "4px" }}>{t("booking.calcTitle")}</div>
                     <div>{getPriceBreakdown(sqft).breakdown}</div>
                     <div style={{ marginTop: "4px", color: "var(--muted2)" }}>
                       {getPriceBreakdown(sqft).isMin
-                        ? <>✅ Minimum charge <b>RM1,000</b> — covers all materials (epoxy resin, primer, sealant), labour, surface prep & {services.indexOf(service) === 1 ? "2-year" : "1-year"} warranty.</>
-                        : <>✅ Includes epoxy resin, primer, sealant, surface prep, labour & {services.indexOf(service) === 1 ? "2-year" : "1-year"} warranty.</>
+                        ? <>{t("booking.calcMinNote1")} <b>RM1,000</b> {t("booking.calcMinNote2")} {warrantyLabel()}.</>
+                        : <>{t("booking.calcInclNote")} {warrantyLabel()}.</>
                       }
                     </div>
                   </div>

@@ -14,17 +14,11 @@ export default function Reviews() {
           <p>{t("reviews.subtitle")}</p>
         </div>
         <div className="rev-grid">
-          {items.map((rev, idx) => (
+          {items.map((item, idx) => (
             <div key={idx} className={`rev-card reveal delay-${idx + 1}`}>
-              <div className="stars">★★★★★</div>
-              <p className="rev-q">{rev.q}</p>
-              <div className="rev-who">
-                <div className="rev-av">{rev.n ? rev.n.substring(0,2).toUpperCase() : ""}</div>
-                <div>
-                  <div className="rev-n">{rev.n}</div>
-                  <div className="rev-r">{rev.r}</div>
-                </div>
-              </div>
+              <div className="stars" style={{ fontSize: "28px", color: "var(--accent)" }}>✓</div>
+              <div className="rev-n" style={{ fontSize: "18px", margin: "6px 0 10px" }}>{item.h}</div>
+              <p className="rev-q" style={{ fontStyle: "normal" }}>{item.s}</p>
             </div>
           ))}
         </div>
