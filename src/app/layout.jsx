@@ -11,11 +11,11 @@ export const metadata = {
   openGraph: {
     title: "FLEKS Epoxy Flooring — Kota Kinabalu & Sabah",
     description: "Seamless, glossy, ultra-durable epoxy floors. 2–3 day install, up to 2-year warranty. Free site visit across Kota Kinabalu & Sabah.",
-    url: "https://fleks-epoxy-website.vercel.app/",
+    url: "https://fleksepoxy.com/",
     siteName: "FLEKS Epoxy",
     images: [
       {
-        url: "https://fleks-epoxy-website.vercel.app/processed/hero-epoxy-desktop.webp",
+        url: "https://fleksepoxy.com/processed/hero-epoxy-desktop.webp",
         width: 1400,
         height: 788,
         alt: "FLEKS Epoxy Flooring",
@@ -28,7 +28,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "FLEKS Epoxy Flooring — Kota Kinabalu & Sabah",
     description: "Seamless, glossy, ultra-durable epoxy floors. 2–3 day install, up to 2-year warranty.",
-    images: ["https://fleks-epoxy-website.vercel.app/processed/hero-epoxy-desktop.webp"],
+    images: ["https://fleksepoxy.com/processed/hero-epoxy-desktop.webp"],
   },
 };
 

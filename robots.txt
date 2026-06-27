@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fleks-epoxy-website.vercel.app/sitemap.xml
+Sitemap: https://fleksepoxy.com/sitemap.xml
