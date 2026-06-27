@@ -190,8 +190,7 @@ export default function BookingForm() {
                 <div className="price-est" style={{ flexDirection: "column", alignItems: "stretch", gap: "12px" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
                     <div className="pe-label">{t("booking.priceLabel")}</div>
-                    <div style={{ fontSize: "12px", color: "var(--muted2)" }}>{t("booking.priceDesc")}</div>
-                    <div className="pe-range" style={{ marginTop: "6px", whiteSpace: "normal" }}>{getPriceBreakdown(sqft).range}</div>
+                    <div className="pe-range" style={{ marginTop: "4px", whiteSpace: "normal" }}>{getPriceBreakdown(sqft).range}</div>
                   </div>
                   <div style={{ background: "rgba(0,179,164,0.07)", borderRadius: "8px", padding: "10px 12px", fontSize: "12px", color: "var(--muted)", lineHeight: "1.6" }}>
                     <div style={{ fontWeight: "600", color: "var(--accent)", marginBottom: "4px" }}>{t("booking.calcTitle")}</div>
