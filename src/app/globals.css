@@ -273,7 +273,7 @@ h2{font-size:clamp(30px,4.4vw,46px);font-weight:800;letter-spacing:-1px;line-hei
   font-size:15px;font-family:inherit;background:#f7f9fb;color:var(--txt);transition:.18s;outline:none}
 .form-input:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px rgba(0,179,164,.12)}
 .form-input::placeholder{color:var(--muted2)}
-.form-date{appearance:none;-webkit-appearance:none;cursor:pointer;color:var(--txt);min-height:48px}
+.form-date{cursor:pointer;color:var(--txt);min-height:48px}
 .form-date::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.55;filter:saturate(0)}
 .form-date:focus::-webkit-calendar-picker-indicator{opacity:1}
 

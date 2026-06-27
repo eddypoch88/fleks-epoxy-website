@@ -7,7 +7,7 @@ export default function BookingForm() {
 
   // Provide a safe default using || or checking if t("booking.services") returns an array
   const rawServices = t("booking.services");
-  const services = Array.isArray(rawServices) ? rawServices : ["Rumah", "Komersial", "Industri", "Garaj / Gudang"];
+  const services = Array.isArray(rawServices) ? rawServices : ["Rumah", "Komersial"];
 
   const [service, setService] = useState(services[0] || "Rumah");
   const [name, setName] = useState("");
@@ -35,18 +35,24 @@ export default function BookingForm() {
     } catch (e) {}
   }, []);
 
-  const MIN_CHARGE = 950;
+  const MIN_CHARGE = 1000;
+
+  const getPriceBreakdown = (sq) => {
+    const base = services.indexOf(service) === 1 ? 32 : 28;
+    const raw = sq * base;
+    const isMin = raw < MIN_CHARGE;
+    const low = isMin ? MIN_CHARGE : raw;
+    const high = Math.round(low * 1.08);
+    const range = `RM ${low.toLocaleString()}–${high.toLocaleString()}`;
+    const breakdown = isMin
+      ? `${sq} sq ft × RM${base} = RM${raw} → Minimum charge applies`
+      : `${sq} sq ft × RM${base}/sq ft = RM${raw.toLocaleString()}`;
+    return { range, breakdown, isMin };
+  };
 
   const getPriceEst = (sq) => {
-    let base = 25;
-    const sIndex = services.indexOf(service);
-    if (sIndex === 1) base = 32;
-    if (sIndex === 2) base = 20;
-    if (sIndex === 3) base = 22;
-    const low = Math.max(MIN_CHARGE, sq * base);
-    const high = Math.max(MIN_CHARGE, Math.round(sq * base * 1.25));
-    const minNote = sq * base < MIN_CHARGE ? " (min)" : "";
-    return `RM ${low.toLocaleString()}–${high.toLocaleString()}${minNote}`;
+    const { range, isMin } = getPriceBreakdown(sq);
+    return `${range}${isMin ? " (min)" : ""}`;
   };
 
   const getGps = () => {
@@ -178,12 +184,24 @@ export default function BookingForm() {
                     <span>{t("booking.sizeS1")}</span><span>{t("booking.sizeS2")}</span>
                   </div>
                 </div>
-                <div className="price-est">
-                  <div>
-                    <div className="pe-label">{t("booking.priceLabel")}</div>
-                    <div style={{ fontSize: "12px", color: "var(--muted2)", marginTop: "2px" }}>{t("booking.priceDesc")}</div>
+                <div className="price-est" style={{ flexDirection: "column", gap: "10px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+                    <div>
+                      <div className="pe-label">{t("booking.priceLabel")}</div>
+                      <div style={{ fontSize: "12px", color: "var(--muted2)", marginTop: "2px" }}>{t("booking.priceDesc")}</div>
+                    </div>
+                    <div className="pe-range">{getPriceBreakdown(sqft).range}</div>
                   </div>
-                  <div className="pe-range">{getPriceEst(sqft)}</div>
+                  <div style={{ background: "rgba(0,179,164,0.07)", borderRadius: "8px", padding: "10px 12px", fontSize: "12px", color: "var(--muted)", lineHeight: "1.6" }}>
+                    <div style={{ fontWeight: "600", color: "var(--accent)", marginBottom: "4px" }}>📐 How we calculate:</div>
+                    <div>{getPriceBreakdown(sqft).breakdown}</div>
+                    <div style={{ marginTop: "4px", color: "var(--muted2)" }}>
+                      {getPriceBreakdown(sqft).isMin
+                        ? <>✅ Minimum charge <b>RM1,000</b> — covers all materials (epoxy resin, primer, sealant), labour, surface prep & {services.indexOf(service) === 1 ? "2-year" : "1-year"} warranty.</>
+                        : <>✅ Includes epoxy resin, primer, sealant, surface prep, labour & {services.indexOf(service) === 1 ? "2-year" : "1-year"} warranty.</>
+                      }
+                    </div>
+                  </div>
                 </div>
                 <div style={{ marginTop: "20px" }}>
                   <button className="btn-submit" onClick={submitBooking}>

@@ -6,11 +6,11 @@ const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata = {
   title: "FLEKS Epoxy Flooring Kota Kinabalu | Lantai Epoxy Sabah",
-  description: "FLEKS — premium epoxy flooring & lantai epoxy in Kota Kinabalu, Sabah. Seamless, glossy, anti-slip floors for bathrooms, homes, offices & factories. 2–3 day install, 5-year warranty. Free site visit. WhatsApp us today.",
+  description: "FLEKS — premium epoxy flooring & lantai epoxy in Kota Kinabalu, Sabah. Seamless, glossy, anti-slip floors for bathrooms, homes, offices & factories. 2–3 day install, up to 2-year warranty. Free site visit. WhatsApp us today.",
   keywords: "epoxy flooring Kota Kinabalu, lantai epoxy Sabah, epoxy lantai KK, epoxy flooring Sabah, terrazzo epoxy, flake flooring, bathroom epoxy, lantai tandas epoxy, epoxy floor coating Malaysia",
   openGraph: {
     title: "FLEKS Epoxy Flooring — Kota Kinabalu & Sabah",
-    description: "Seamless, glossy, ultra-durable epoxy floors. 2–3 day install, 5-year warranty. Free site visit across Kota Kinabalu & Sabah.",
+    description: "Seamless, glossy, ultra-durable epoxy floors. 2–3 day install, up to 2-year warranty. Free site visit across Kota Kinabalu & Sabah.",
     url: "https://fleks-epoxy-website.vercel.app/",
     siteName: "FLEKS Epoxy",
     images: [
@@ -27,7 +27,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "FLEKS Epoxy Flooring — Kota Kinabalu & Sabah",
-    description: "Seamless, glossy, ultra-durable epoxy floors. 2–3 day install, 5-year warranty.",
+    description: "Seamless, glossy, ultra-durable epoxy floors. 2–3 day install, up to 2-year warranty.",
     images: ["https://fleks-epoxy-website.vercel.app/processed/hero-epoxy-desktop.webp"],
   },
 };

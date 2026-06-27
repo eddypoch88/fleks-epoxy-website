@@ -34,7 +34,7 @@ export default function Hero() {
             {t("hero.subtitle")}
           </p>
           <div className="hero-btns">
-            <Link className="btn btn-primary" href="#contact">
+            <Link className="btn btn-primary" href="#bookForm">
               {t("hero.btnBook")}
             </Link>
             <a

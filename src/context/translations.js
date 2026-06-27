@@ -23,7 +23,7 @@ export const translations = {
       f2T: "30–45 mins", f2S: "At your convenience",
       f3T: "100% free", f3S: "No obligations at all",
       f4T: "Accurate quote", f4S: "We calculate on-site — no hidden charges",
-      serviceLabel: "Service type", services: ["Home", "Commercial", "Industrial", "Garage / Warehouse"],
+      serviceLabel: "Service type", services: ["Home", "Commercial"],
       nameLabel: "Your name", namePh: "e.g. Ahmad / Sarah",
       phoneLabel: "Phone / WhatsApp",
       locLabel: "Project location", locDesc: "To ensure your location is within our coverage (Kota Kinabalu & Sabah), please share your project location pin.",
@@ -48,8 +48,8 @@ export const translations = {
       p2T: "Commercial", p2S: "For offices, showrooms & retail",
       p3T: "Industrial", p3S: "For factories, warehouses & carparks",
       popTag: "MOST POPULAR", sqft: "/sq ft", btnBook: "Book free site visit",
-      f1: ["1–2 day install", "Seamless & easy to clean", "2-year warranty", "10 colour options", "Free design consult"],
-      f2: ["Priority scheduling", "Anti-slip addons available", "7-year warranty", "Custom logo inlay option", "Free 3D mockup included"],
+      f1: ["1–2 day install", "Seamless & easy to clean", "1-year warranty", "10 colour options", "Free design consult"],
+      f2: ["Priority scheduling", "Anti-slip addons available", "2-year warranty", "Custom logo inlay option", "Free 3D mockup included"],
       f3: ["Chemical-resistant coat", "UV-stable top coat", "5-year warranty", "Bulk project discount", "Heavy load rated"],
       note: "Final quote after free site visit. No hidden charges. Covers all of Kota Kinabalu & Sabah."
     },
@@ -76,15 +76,15 @@ export const translations = {
     faq: {
       eyebrow: "Questions", title: "Epoxy flooring FAQ — Sabah", subtitle: "Everything Kota Kinabalu homeowners ask before booking.",
       items: [
-        { q: "How much does epoxy flooring cost in Kota Kinabalu?", a: "FLEKS epoxy flooring starts from RM20/sq ft for industrial floors, RM25/sq ft for homes, and RM32/sq ft for commercial spaces. Final price depends on floor size, condition and finish. We give a free, no-obligation quote after a site visit anywhere in Sabah." },
+        { q: "How much does epoxy flooring cost in Kota Kinabalu?", a: "FLEKS epoxy flooring starts from RM28/sq ft for homes and RM32/sq ft for commercial spaces. Final price depends on floor size, condition and finish. We give a free, no-obligation quote after a site visit anywhere in Sabah." },
         { q: "How long does installation take?", a: "Most floors are fully installed in 2–3 days — surface prep, base coat, flake or colour layer, then a glossy top coat. Small bathrooms can be done in 1–2 days." },
         { q: "Is epoxy good for bathrooms and wet areas?", a: "Yes. Epoxy is seamless and waterproof — no grout lines for mould or bacteria. We add an anti-slip layer for bathrooms and wet areas, making them safe and very easy to clean." },
-        { q: "How long does an epoxy floor last?", a: "A professionally installed FLEKS floor lasts well over 5 years and comes with a 5-year warranty. Industrial floors handle forklifts and heavy loads; home floors stay glossy for years with simple cleaning." },
+        { q: "How long does an epoxy floor last?", a: "A professionally installed FLEKS floor lasts well over 5 years. Home floors come with a 1-year workmanship warranty; commercial floors come with a 2-year warranty. With simple cleaning, your floor stays glossy for years to come." },
         { q: "Which areas in Sabah do you cover?", a: "We serve all of Kota Kinabalu and surrounding areas including Penampang, Inanam, Likas, Putatan and Menggatal. Site visits across Kota Kinabalu are free." }
       ]
     },
     footer: {
-      desc: "Premium epoxy flooring for homes, offices & factories across Kota Kinabalu, Sabah. Seamless, glossy, 5-year warranty.",
+      desc: "Premium epoxy flooring for homes, offices & factories across Kota Kinabalu, Sabah. Seamless, glossy, up to 2-year warranty.",
       quickLinks: "Quick links", contact: "Contact", rights: "All rights reserved.", licensed: "Licensed & insured · Proudly Malaysian 🇲🇾"
     }
   },
@@ -99,7 +99,7 @@ export const translations = {
       titleLine1: "Lantai yang",
       titleLine2: "bersinar macam ",
       titleHighlight: "kaca.",
-      subtitle: "Lantai epoxy tanpa jahitan, berkilat dan tahan lasak untuk bilik air, rumah, pejabat & kilang di sekitar Kota Kinabalu & Sabah. Siap dalam 2–3 hari. Jaminan 5 tahun.",
+      subtitle: "Lantai epoxy tanpa jahitan, berkilat dan tahan lasak untuk bilik air, rumah, pejabat & kilang di sekitar Kota Kinabalu & Sabah. Siap dalam 2–3 hari. Jaminan hingga 2 tahun.",
       btnBook: "Tempah lawatan percuma →",
       btnWa: "WhatsApp kami",
       stats: { n1: "1,200+", l1: "Lantai siap", n2: "4.9 ★", l2: "Rating Google", n3: "12 thn", l3: "Pengalaman" },
@@ -112,7 +112,7 @@ export const translations = {
       f2T: "30–45 minit", f2S: "Mengikut waktu awak",
       f3T: "100% percuma", f3S: "Tiada obligasi langsung",
       f4T: "Ukuran & harga tepat", f4S: "Kami kira on-site — tiada hidden charges",
-      serviceLabel: "Jenis servis", services: ["Rumah", "Komersial", "Industri", "Garaj / Gudang"],
+      serviceLabel: "Jenis servis", services: ["Rumah", "Komersial"],
       nameLabel: "Nama anda", namePh: "e.g. Ahmad / Sarah",
       phoneLabel: "Telefon / WhatsApp",
       locLabel: "Lokasi tapak projek", locDesc: "Bagi memastikan lokasi anda berada dalam kawasan liputan kami (Kota Kinabalu & Sabah), sila kongsikan pin lokasi tapak projek.",
@@ -137,8 +137,8 @@ export const translations = {
       p2T: "Komersial", p2S: "Untuk pejabat, bilik pameran & kedai",
       p3T: "Industri", p3S: "Untuk kilang, gudang & tempat letak kereta",
       popTag: "PALING POPULAR", sqft: "/kaki persegi", btnBook: "Tempah lawatan percuma",
-      f1: ["Siap 1-2 hari", "Tiada sambungan & mudah dicuci", "Jaminan 2 tahun", "10 pilihan warna", "Konsultasi rekaan percuma"],
-      f2: ["Keutamaan jadual", "Kemasan anti-slip ditawarkan", "Jaminan 7 tahun", "Boleh letak logo khas", "Mockup 3D percuma"],
+      f1: ["Siap 1-2 hari", "Tiada sambungan & mudah dicuci", "Jaminan 1 tahun", "10 pilihan warna", "Konsultasi rekaan percuma"],
+      f2: ["Keutamaan jadual", "Kemasan anti-slip ditawarkan", "Jaminan 2 tahun", "Boleh letak logo khas", "Mockup 3D percuma"],
       f3: ["Salutan tahan kimia", "Salutan UV stabil", "Jaminan 5 tahun", "Diskaun projek pukal", "Tahan bebanan berat"],
       note: "Sebut harga akhir selepas lawatan tapak percuma. Tiada caj tersembunyi. Merangkumi seluruh Kota Kinabalu & Sabah."
     },
@@ -165,15 +165,15 @@ export const translations = {
     faq: {
       eyebrow: "Soalan", title: "Soalan Lazim Epoxy — Sabah", subtitle: "Soalan biasa sebelum tempahan di sekitar Kota Kinabalu.",
       items: [
-        { q: "Berapa kos lantai epoxy di Kota Kinabalu?", a: "Lantai epoxy FLEKS bermula dari RM20/kps untuk kilang, RM25/kps untuk rumah, dan RM32/kps untuk komersial. Harga akhir bergantung pada saiz lantai, keadaan dan kemasan. Kami berikan sebut harga percuma tanpa obligasi selepas lawatan tapak di seluruh Sabah." },
+        { q: "Berapa kos lantai epoxy di Kota Kinabalu?", a: "Lantai epoxy FLEKS bermula dari RM28/kps untuk rumah dan RM32/kps untuk komersial. Harga akhir bergantung pada saiz lantai, keadaan dan kemasan. Kami berikan sebut harga percuma tanpa obligasi selepas lawatan tapak di seluruh Sabah." },
         { q: "Berapa lama masa pemasangan?", a: "Kebanyakan lantai siap sepenuhnya dalam 2-3 hari — persiapan permukaan, lapisan asas, lapisan flake/warna, kemudian top coat berkilat. Bilik air kecil boleh siap dalam 1-2 hari." },
         { q: "Adakah epoxy sesuai untuk bilik air dan kawasan basah?", a: "Ya. Epoxy adalah lancar dan kalis air — tiada garisan jubin untuk kulat atau bakteria. Kami tambah lapisan anti-slip untuk bilik air, menjadikannya selamat dan sangat mudah dicuci." },
-        { q: "Berapa lama lantai epoxy tahan?", a: "Lantai FLEKS yang dipasang secara profesional tahan lebih dari 5 tahun dan disertakan dengan jaminan 5 tahun. Lantai kilang tahan beban berat; lantai rumah kekal berkilat bertahun-tahun dengan cucian biasa." },
+        { q: "Berapa lama lantai epoxy tahan?", a: "Lantai FLEKS yang dipasang secara profesional tahan lebih dari 5 tahun. Lantai rumah disertakan jaminan kerja 1 tahun; lantai komersial 2 tahun. Dengan cucian biasa, lantai anda kekal berkilat bertahun-tahun." },
         { q: "Kawasan mana di Sabah yang anda liputi?", a: "Kami servis seluruh Kota Kinabalu dan kawasan sekitar termasuk Penampang, Inanam, Likas, Putatan dan Menggatal. Lawatan tapak di seluruh Kota Kinabalu adalah percuma." }
       ]
     },
     footer: {
-      desc: "Lantai epoxy premium untuk rumah, pejabat & kilang di seluruh Kota Kinabalu, Sabah. Tiada sambungan, berkilat, jaminan 5 tahun.",
+      desc: "Lantai epoxy premium untuk rumah, pejabat & kilang di seluruh Kota Kinabalu, Sabah. Tiada sambungan, berkilat, jaminan hingga 2 tahun.",
       quickLinks: "Pautan Pemas", contact: "Hubungi", rights: "Hak cipta terpelihara.", licensed: "Berlesen & berinsurans · Bangga sebagai Rakyat Malaysia 🇲🇾"
     }
   },
@@ -188,7 +188,7 @@ export const translations = {
       titleLine1: "光洁如镜的",
       titleLine2: "极致",
       titleHighlight: "地板.",
-      subtitle: "无缝、光泽、超耐用的环氧树脂地板，适用于亚庇及沙巴各地的浴室、住宅、展厅及工厂。2-3天安装。5年保修。",
+      subtitle: "无缝、光泽、超耐用的环氧树脂地板，适用于亚庇及沙巴各地的浴室、住宅、展厅及工厂。2-3天安装。最高2年保修。",
       btnBook: "免费上门估价 →",
       btnWa: "WhatsApp 我们",
       stats: { n1: "1,200+", l1: "完成项目", n2: "4.9 ★", l2: "谷歌评分", n3: "12 年", l3: "行业经验" },
@@ -201,7 +201,7 @@ export const translations = {
       f2T: "30–45 分钟", f2S: "配合您的时间",
       f3T: "100% 免费", f3S: "无任何附加条件",
       f4T: "准确报价", f4S: "我们现场测量计算 — 无隐藏费用",
-      serviceLabel: "服务类型", services: ["住宅", "商业", "工业", "车库 / 仓库"],
+      serviceLabel: "服务类型", services: ["住宅", "商业"],
       nameLabel: "您的名字", namePh: "例如: Ahmad / Sarah",
       phoneLabel: "电话 / WhatsApp",
       locLabel: "项目地点", locDesc: "为确保您的地点在我们的服务范围内（亚庇及沙巴），请分享您的项目定位。",
@@ -226,8 +226,8 @@ export const translations = {
       p2T: "商业", p2S: "适用于办公室、展厅、零售店",
       p3T: "工业", p3S: "适用于工厂、仓库、停车场",
       popTag: "最受欢迎", sqft: "/平方英尺", btnBook: "免费预约上门",
-      f1: ["1-2天安装", "无缝且易于清洁", "2年保修", "10种颜色选择", "免费设计咨询"],
-      f2: ["优先排期", "可选防滑涂层", "7年保修", "可定制徽标镶嵌", "包含免费3D效果图"],
+      f1: ["1-2天安装", "无缝且易于清洁", "1年保修", "10种颜色选择", "免费设计咨询"],
+      f2: ["优先排期", "可选防滑涂层", "2年保修", "可定制徽标镶嵌", "包含免费3D效果图"],
       f3: ["耐化学涂层", "抗UV面漆", "5年保修", "大型项目折扣", "承受重载额定"],
       note: "免费上门测量后提供最终报价。无隐藏费用。服务范围覆盖亚庇及整个沙巴。"
     },
@@ -254,15 +254,15 @@ export const translations = {
     faq: {
       eyebrow: "常见问题", title: "沙巴环氧树脂地板常见问题", subtitle: "亚庇房主预约前最常问的问题。",
       items: [
-        { q: "在亚庇做环氧树脂地板要多少钱？", a: "FLEKS 环氧树脂地板工业用从 RM20/平方英尺起，家庭用 RM25/平方英尺起，商业空间 RM32/平方英尺起。最终价格取决于场地大小、状况和表面处理。我们在沙巴全境提供免费上门测量的无义务报价。" },
+        { q: "在亚庇做环氧树脂地板要多少钱？", a: "FLEKS 环氧树脂地板家庭用从 RM28/平方英尺起，商业空间 RM32/平方英尺起。最终价格取决于场地大小、状况和表面处理。我们在沙巴全境提供免费上门测量的无义务报价。" },
         { q: "安装需要多长时间？", a: "大多数地板可在2-3天内完全安装完毕 — 包括表面准备、底漆、彩片或彩色层，然后是亮面面漆。小浴室可以在1-2天内完成。" },
         { q: "环氧树脂适用于浴室和潮湿区域吗？", a: "是的。环氧树脂是无缝且防水的 — 没有瓷砖缝隙，不会滋生霉菌或细菌。我们会在浴室和潮湿区域添加防滑层，确保安全且非常易于清洁。" },
-        { q: "环氧树脂地板能用多久？", a: "专业安装的 FLEKS 地板可以使用超过5年，并提供5年保修。工业地板可承受叉车和重载；家庭地板只需简单清洁即可多年保持光泽。" },
+        { q: "环氧树脂地板能用多久？", a: "专业安装的 FLEKS 地板可以使用超过5年。住宅地板提供1年施工质保，商业地板提供2年质保。日常简单清洁即可多年保持光泽。" },
         { q: "你们的服务范围包括沙巴哪些地区？", a: "我们服务亚庇及其周边地区，包括兵南邦、下南南、里卡士、必打丹和孟加达。亚庇全境免费上门测量。" }
       ]
     },
     footer: {
-      desc: "沙巴亚庇顶级的家庭、办公室和工厂环氧树脂地板。无缝、光泽，5年保修。",
+      desc: "沙巴亚庇顶级的家庭、办公室和工厂环氧树脂地板。无缝、光泽，最高2年质保。",
       quickLinks: "快速链接", contact: "联系我们", rights: "版权所有。", licensed: "持牌经营 · 骄傲的马来西亚品牌 🇲🇾"
     }
   }
