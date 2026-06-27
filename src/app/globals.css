@@ -276,6 +276,10 @@ h2{font-size:clamp(30px,4.4vw,46px);font-weight:800;letter-spacing:-1px;line-hei
 .form-date{cursor:pointer;color:var(--txt);min-height:48px}
 .form-date::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.55;filter:saturate(0)}
 .form-date:focus::-webkit-calendar-picker-indicator{opacity:1}
+/* Hide the browser's native empty text (dd/mm/yyyy) until a date is picked, so our custom placeholder shows consistently on mobile & desktop */
+.form-date:not(.has-val)::-webkit-datetime-edit{color:transparent}
+.date-wrap{position:relative}
+.date-ph{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--muted2);font-size:15px;pointer-events:none}
 
 .phone-wrap{display:flex;align-items:stretch;gap:0;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#f7f9fb}
 .phone-wrap:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,179,164,.12);background:#fff}

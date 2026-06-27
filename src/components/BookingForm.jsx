@@ -154,14 +154,17 @@ export default function BookingForm() {
                 </div>
                 <div className="form-group">
                   <label className="form-label" htmlFor="bDate">{t("booking.dateLabel")}</label>
-                  <input
-                    className="form-input form-date"
-                    id="bDate"
-                    type="date"
-                    min={todayStr}
-                    value={bookDate}
-                    onChange={(e) => setBookDate(e.target.value)}
-                  />
+                  <div className="date-wrap">
+                    <input
+                      className={`form-input form-date ${bookDate ? "has-val" : ""}`}
+                      id="bDate"
+                      type="date"
+                      min={todayStr}
+                      value={bookDate}
+                      onChange={(e) => setBookDate(e.target.value)}
+                    />
+                    {!bookDate && <span className="date-ph">{t("booking.datePh")}</span>}
+                  </div>
                 </div>
                 <div className="form-group">
                   <div className="form-label">{t("booking.sizeLabel")}: <span>{sqft} {t("booking.unit")}</span></div>
