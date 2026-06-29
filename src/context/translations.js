@@ -81,10 +81,12 @@ export const translations = {
     faq: {
       eyebrow: "Questions", title: "Epoxy flooring FAQ — Sabah", subtitle: "Everything Kota Kinabalu homeowners ask before booking.",
       items: [
-        { q: "How much does epoxy flooring cost in Kota Kinabalu?", a: "FLEKS epoxy flooring starts from RM28/sq ft for homes and RM32/sq ft for commercial spaces. Final price depends on floor size, condition and finish. We give a free, no-obligation quote after a site visit anywhere in Sabah." },
+        { q: "How much is epoxy flooring per square foot in Malaysia?", a: "In Kota Kinabalu, Sabah, FLEKS epoxy flooring starts from RM28/sq ft for homes and RM32/sq ft for commercial spaces. Nationally, prices range from RM20–RM50/sq ft depending on finish and contractor. Final price depends on floor size, condition and finish type. We give a free, no-obligation quote after a site visit anywhere in Sabah." },
+        { q: "Which epoxy is best for flooring?", a: "For homes and bathrooms, flake epoxy (broadcast flake system) is the most popular — it hides imperfections and adds anti-slip texture. For showrooms and commercial spaces, metallic epoxy gives a stunning marble-like finish. For factories and heavy-use floors, a solid colour self-levelling epoxy with a high-build top coat is most durable. FLEKS offers all three — we recommend the best system after a free site assessment." },
         { q: "How long does installation take?", a: "Most floors are fully installed in 2–3 days — surface prep, base coat, flake or colour layer, then a glossy top coat. Small bathrooms can be done in 1–2 days." },
         { q: "Is epoxy good for bathrooms and wet areas?", a: "Yes. Epoxy is seamless and waterproof — no grout lines for mould or bacteria. We add an anti-slip layer for bathrooms and wet areas, making them safe and very easy to clean." },
-        { q: "How long does an epoxy floor last?", a: "A professionally installed FLEKS floor lasts well over 5 years. Home floors come with a 1-year workmanship warranty; commercial floors come with a 2-year warranty. With simple cleaning, your floor stays glossy for years to come." },
+        { q: "How long will epoxy last on a floor?", a: "A professionally installed FLEKS floor lasts well over 5 years with normal use. Home floors come with a 1-year workmanship warranty; commercial floors come with a 2-year warranty. With simple mopping and avoiding sharp impacts, your floor stays glossy for many years." },
+        { q: "What are the common problems with epoxy floor coating?", a: "The most common issues are peeling, bubbling, and yellowing — almost always caused by poor surface preparation or using low-grade materials. FLEKS avoids these by grinding and profiling the concrete before coating, using industrial-grade epoxy resin, and applying a UV-resistant top coat to prevent yellowing. Proper installation by trained applicators is the single biggest factor in epoxy longevity." },
         { q: "Which areas in Sabah do you cover?", a: "We serve all of Kota Kinabalu and surrounding areas including Penampang, Inanam, Likas, Putatan and Menggatal. Site visits across Kota Kinabalu are free." }
       ]
     },
@@ -176,10 +178,12 @@ export const translations = {
     faq: {
       eyebrow: "Soalan", title: "Soalan Lazim Epoxy — Sabah", subtitle: "Soalan biasa sebelum tempahan di sekitar Kota Kinabalu.",
       items: [
-        { q: "Berapa kos lantai epoxy di Kota Kinabalu?", a: "Lantai epoxy FLEKS bermula dari RM28/kps untuk rumah dan RM32/kps untuk komersial. Harga akhir bergantung pada saiz lantai, keadaan dan kemasan. Kami berikan sebut harga percuma tanpa obligasi selepas lawatan tapak di seluruh Sabah." },
+        { q: "Berapa harga lantai epoxy per kaki persegi di Malaysia?", a: "Di Kota Kinabalu, Sabah, lantai epoxy FLEKS bermula dari RM28/kps untuk rumah dan RM32/kps untuk komersial. Secara nasional, harga biasanya antara RM20–RM50/kps bergantung pada kemasan dan kontraktor. Harga akhir bergantung pada saiz lantai, keadaan permukaan dan jenis kemasan. Kami berikan sebut harga percuma tanpa obligasi selepas lawatan tapak di seluruh Sabah." },
+        { q: "Epoxy jenis mana yang terbaik untuk lantai?", a: "Untuk rumah dan bilik air, epoxy flake (sistem broadcast flake) paling popular — ia menyembunyikan kecacatan dan menambah tekstur anti-slip. Untuk showroom dan ruang komersial, epoxy metalik memberikan kemasan seperti marmar yang memukau. Untuk kilang dan lantai penggunaan berat, epoxy warna pepejal self-levelling dengan top coat tebal adalah paling tahan lasak. FLEKS menawarkan ketiga-tiganya — kami cadangkan sistem terbaik selepas penilaian tapak percuma." },
         { q: "Berapa lama masa pemasangan?", a: "Kebanyakan lantai siap sepenuhnya dalam 2-3 hari — persiapan permukaan, lapisan asas, lapisan flake/warna, kemudian top coat berkilat. Bilik air kecil boleh siap dalam 1-2 hari." },
         { q: "Adakah epoxy sesuai untuk bilik air dan kawasan basah?", a: "Ya. Epoxy adalah lancar dan kalis air — tiada garisan jubin untuk kulat atau bakteria. Kami tambah lapisan anti-slip untuk bilik air, menjadikannya selamat dan sangat mudah dicuci." },
-        { q: "Berapa lama lantai epoxy tahan?", a: "Lantai FLEKS yang dipasang secara profesional tahan lebih dari 5 tahun. Lantai rumah disertakan jaminan kerja 1 tahun; lantai komersial 2 tahun. Dengan cucian biasa, lantai anda kekal berkilat bertahun-tahun." },
+        { q: "Berapa lama lantai epoxy akan bertahan?", a: "Lantai FLEKS yang dipasang secara profesional tahan lebih dari 5 tahun dengan penggunaan normal. Lantai rumah disertakan jaminan kerja 1 tahun; lantai komersial 2 tahun. Dengan mopan biasa dan elakkan hentaman tajam, lantai anda kekal berkilat bertahun-tahun." },
+        { q: "Apakah masalah biasa dengan salutan lantai epoxy?", a: "Masalah paling biasa adalah mengelupas, berbuih, dan menguning — hampir semua berpunca daripada persediaan permukaan yang lemah atau penggunaan bahan berkualiti rendah. FLEKS mengelakkan ini dengan mengisar dan memprofil konkrit sebelum bersalut, menggunakan resin epoxy gred industri, dan mengaplikasikan top coat tahan UV untuk mengelakkan penguningan. Pemasangan betul oleh pengaplikasi terlatih adalah faktor terbesar dalam ketahanan epoxy." },
         { q: "Kawasan mana di Sabah yang anda liputi?", a: "Kami servis seluruh Kota Kinabalu dan kawasan sekitar termasuk Penampang, Inanam, Likas, Putatan dan Menggatal. Lawatan tapak di seluruh Kota Kinabalu adalah percuma." }
       ]
     },
@@ -271,10 +275,12 @@ export const translations = {
     faq: {
       eyebrow: "常见问题", title: "沙巴环氧树脂地板常见问题", subtitle: "亚庇房主预约前最常问的问题。",
       items: [
-        { q: "在亚庇做环氧树脂地板要多少钱？", a: "FLEKS 环氧树脂地板家庭用从 RM28/平方英尺起，商业空间 RM32/平方英尺起。最终价格取决于场地大小、状况和表面处理。我们在沙巴全境提供免费上门测量的无义务报价。" },
+        { q: "在马来西亚做环氧树脂地板每平方英尺多少钱？", a: "在沙巴亚庇，FLEKS 环氧树脂地板家庭用从 RM28/平方英尺起，商业空间 RM32/平方英尺起。全国价格一般介于 RM20–RM50/平方英尺，视乎表面处理和承包商而定。最终价格取决于场地大小、状况和表面处理类型。我们在沙巴全境提供免费上门测量的无义务报价。" },
+        { q: "哪种环氧树脂地板最好？", a: "住宅和浴室最常用彩片环氧树脂（broadcast flake 系统）——能遮盖瑕疵并增加防滑纹理。展厅和商业空间适合金属环氧树脂，呈现如大理石般华丽的效果。工厂和重负荷地板则推荐厚涂自流平纯色环氧树脂，最为耐用。FLEKS 三种都有提供——我们会在免费上门评估后为您推荐最合适的系统。" },
         { q: "安装需要多长时间？", a: "大多数地板可在2-3天内完全安装完毕 — 包括表面准备、底漆、彩片或彩色层，然后是亮面面漆。小浴室可以在1-2天内完成。" },
         { q: "环氧树脂适用于浴室和潮湿区域吗？", a: "是的。环氧树脂是无缝且防水的 — 没有瓷砖缝隙，不会滋生霉菌或细菌。我们会在浴室和潮湿区域添加防滑层，确保安全且非常易于清洁。" },
-        { q: "环氧树脂地板能用多久？", a: "专业安装的 FLEKS 地板可以使用超过5年。住宅地板提供1年施工质保，商业地板提供2年质保。日常简单清洁即可多年保持光泽。" },
+        { q: "环氧树脂地板能用多久？", a: "专业安装的 FLEKS 地板正常使用可超过5年。住宅地板提供1年施工质保，商业地板提供2年质保。日常简单清洁、避免尖锐撞击，即可多年保持光泽。" },
+        { q: "环氧树脂地板涂层常见的问题有哪些？", a: "最常见的问题是起皮、起泡和泛黄——几乎都是由于表面准备不足或使用劣质材料造成的。FLEKS 通过在涂装前研磨和处理混凝土、使用工业级环氧树脂，以及涂抹抗 UV 面漆来防止泛黄，从而避免这些问题。由专业施工人员正确安装是决定环氧树脂耐用性最关键的因素。" },
         { q: "你们的服务范围包括沙巴哪些地区？", a: "我们服务亚庇及其周边地区，包括兵南邦、下南南、里卡士、必打丹和孟加达。亚庇全境免费上门测量。" }
       ]
     },
