@@ -4,7 +4,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const fallbackItems = [
   { src: "/processed/gallery-1.webp",      alt: "White flake epoxy bathroom floor Kota Kinabalu" },
-  { src: "/processed/teal_epoxy_floor.png", alt: "Stunning premium teal and white metallic epoxy floor" },
+  { src: "/processed/gallery-4.webp",       alt: "Stunning premium teal and white metallic epoxy floor" },
   { src: "/processed/gallery-3.webp",      alt: "Brown flake epoxy toilet floor seamless finish" },
   { src: "/processed/gallery-2.webp",      alt: "Grey flake epoxy floor coating over tiles" },
   { src: "/processed/gallery-6.webp",      alt: "Glossy silver epoxy tiled floor finish" },

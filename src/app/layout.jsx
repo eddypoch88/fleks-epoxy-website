@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" style={{ overflowX: "hidden" }}>
       <head>
-        <Script src="https://unpkg.com/@phosphor-icons/web" strategy="beforeInteractive" />
+        <Script src="https://unpkg.com/@phosphor-icons/web" strategy="lazyOnload" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="FLEKS Epoxy" />

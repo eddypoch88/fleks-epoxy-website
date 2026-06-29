@@ -12,10 +12,10 @@ export default function Hero() {
     <section className="hero golden-style">
       <div className="hero-bg">
         <picture>
-          <source media="(max-width: 760px)" srcSet="/processed/hero-epoxy-golden.png" type="image/png" />
-          <source media="(min-width: 761px)" srcSet="/processed/hero-epoxy-golden.png" type="image/png" />
+          <source media="(max-width: 760px)" srcSet="/processed/hero-epoxy-mobile.webp" type="image/webp" />
+          <source media="(min-width: 761px)" srcSet="/processed/hero-epoxy-desktop.webp" type="image/webp" />
           <img
-            src="/processed/hero-epoxy-golden.png"
+            src="/processed/hero-epoxy-desktop.webp"
             alt="Stunning premium epoxy flakes floor in Kota Kinabalu by FLEKS"
             loading="eager"
             decoding="async"
