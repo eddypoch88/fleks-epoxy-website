@@ -12,6 +12,7 @@ export const metadata = {
   alternates: {
     canonical: "/",
   },
+  manifest: "/manifest.json",
   openGraph: {
     title: "FLEKS Epoxy Flooring — Kota Kinabalu & Sabah",
     description: "Seamless, glossy, ultra-durable epoxy floors. 2–3 day install, up to 2-year warranty. Free site visit across Kota Kinabalu & Sabah.",
@@ -50,6 +51,25 @@ export default function RootLayout({ children }) {
     <html lang="en" style={{ overflowX: "hidden" }}>
       <head>
         <Script src="https://unpkg.com/@phosphor-icons/web" strategy="beforeInteractive" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="FLEKS Epoxy" />
+        <link rel="apple-touch-icon" href="/icon.png" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js').then(function(reg) {
+                    console.log('SW registered:', reg.scope);
+                  }).catch(function(err) {
+                    console.error('SW registration failed:', err);
+                  });
+                });
+              }
+            `
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
