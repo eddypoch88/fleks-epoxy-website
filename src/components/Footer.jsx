@@ -17,7 +17,7 @@ export default function Footer() {
             <p>{t("footer.desc")}</p>
           </div>
           <div className="foot-col">
-            <h4>{t("footer.quickLinks")}</h4>
+            <h3>{t("footer.quickLinks")}</h3>
             <a href="#why">{t("header.why")}</a>
             <a href="#gallery">{t("header.gallery")}</a>
             <a href="#pricing">{t("header.pricing")}</a>
@@ -25,7 +25,7 @@ export default function Footer() {
             <a href="#contact">{t("header.btnBook")}</a>
           </div>
           <div className="foot-col">
-            <h4>{t("footer.contact")}</h4>
+            <h3>{t("footer.contact")}</h3>
             <a 
               href={waGeneral}
               target="_blank" 
