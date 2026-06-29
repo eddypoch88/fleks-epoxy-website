@@ -32,3 +32,4 @@ Thumbs.db
 
 fb-agent/.env
 fb-agent/node_modules/
+*.webp.tmp

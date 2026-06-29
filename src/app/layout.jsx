@@ -2,7 +2,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 
-const manrope = Manrope({ subsets: ["latin"] });
+const manrope = Manrope({ subsets: ["latin"], display: "swap", preload: true });
 
 export const metadata = {
   metadataBase: new URL("https://fleksepoxy.com"),

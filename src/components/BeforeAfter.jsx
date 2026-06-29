@@ -68,15 +68,23 @@ export default function BeforeAfter() {
             if (e.key === "ArrowRight") setSliderPos(Math.min(100, sliderPos + 5));
           }}
         >
-          <img 
-            className="ba-img" 
-            src="/processed/bathroom-1-after.webp" 
-            alt={t("ba.afterAlt") || "Seamless glossy epoxy bathroom floor after FLEKS installation"} 
+          <img
+            className="ba-img"
+            src="/processed/bathroom-1-after.webp"
+            alt={t("ba.afterAlt") || "Seamless glossy epoxy bathroom floor after FLEKS installation"}
+            width="820"
+            height="820"
+            loading="lazy"
+            decoding="async"
           />
-          <img 
-            className="ba-img ba-top" 
-            src="/processed/bathroom-1-before.webp" 
+          <img
+            className="ba-img ba-top"
+            src="/processed/bathroom-1-before.webp"
             alt={t("ba.beforeAlt") || "Old stained bathroom tiles before epoxy coating"}
+            width="820"
+            height="820"
+            loading="lazy"
+            decoding="async"
             style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
           />
           <span className="ba-tag ba-before">{t("ba.before")}</span>
