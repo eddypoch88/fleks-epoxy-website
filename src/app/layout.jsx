@@ -53,6 +53,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" style={{ overflowX: "hidden" }}>
       <head>
+        <link rel="preload" as="image" href="/processed/hero-epoxy-mobile.webp" media="(max-width: 760px)" type="image/webp" fetchPriority="high" />
+        <link rel="preload" as="image" href="/processed/hero-epoxy-desktop.webp" media="(min-width: 761px)" type="image/webp" fetchPriority="high" />
         <Script src="https://unpkg.com/@phosphor-icons/web" strategy="lazyOnload" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
