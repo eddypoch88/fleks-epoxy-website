@@ -46,6 +46,9 @@ export const viewport = {
 
 import { LanguageProvider } from "@/context/LanguageContext";
 
+const GA_TRACKING_ID = "G-BL9ZBRE13E"; // Ganti dengan ID Google Analytics anda
+const FB_PIXEL_ID = "123456789012345"; // Ganti dengan ID FB Pixel anda
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" style={{ overflowX: "hidden" }}>
@@ -109,6 +112,39 @@ export default function RootLayout({ children }) {
             })
           }}
         />
+
+        {/* Google Analytics Placeholder */}
+        {GA_TRACKING_ID !== "G-XXXXXXXXXX" && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} strategy="afterInteractive" />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_TRACKING_ID}');
+              `}
+            </Script>
+          </>
+        )}
+
+        {/* Facebook Pixel Placeholder */}
+        {FB_PIXEL_ID !== "123456789012345" && (
+          <Script id="fb-pixel" strategy="afterInteractive">
+            {`
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '${FB_PIXEL_ID}');
+              fbq('track', 'PageView');
+            `}
+          </Script>
+        )}
       </head>
       <body className={manrope.className} style={{ overflowX: "hidden", position: "relative" }}>
         <LanguageProvider>
