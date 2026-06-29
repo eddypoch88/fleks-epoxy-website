@@ -110,7 +110,7 @@ export default function Gallery() {
                       </svg>
                       {t("gallery.tapToView")}
                     </div>
-                    <img src={item.src} alt={item.alt} loading="lazy" width="760" height="560" sizes="(max-width: 760px) 80vw, 400px" />
+                    <img src={item.src} alt={item.alt} loading="lazy" width="540" height="397" sizes="(max-width: 760px) 80vw, 400px" />
                     <div className="gal-cap">
                       {item.cap}
                     </div>
