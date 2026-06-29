@@ -173,14 +173,16 @@ export default function BookingForm() {
                   <div className="size-row">
                     <button 
                       type="button" 
+                      aria-label="Decrease size"
                       onClick={() => setSqft(Math.max(30, sqft - 1))}
                       style={{ width: "32px", height: "32px", borderRadius: "50%", border: "1px solid var(--line)", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", fontWeight: "600", cursor: "pointer", color: "var(--muted)" }}
                     >
                       -
                     </button>
-                    <input type="range" min="30" max="1000" value={sqft} step="1" onChange={(e) => setSqft(Number(e.target.value))} />
+                    <input type="range" aria-label="Adjust floor size" min="30" max="1000" value={sqft} step="1" onChange={(e) => setSqft(Number(e.target.value))} />
                     <button 
                       type="button" 
+                      aria-label="Increase size"
                       onClick={() => setSqft(Math.min(1000, sqft + 1))}
                       style={{ width: "32px", height: "32px", borderRadius: "50%", border: "1px solid var(--line)", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", fontWeight: "600", cursor: "pointer", color: "var(--muted)" }}
                     >

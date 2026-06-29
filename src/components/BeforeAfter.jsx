@@ -57,6 +57,16 @@ export default function BeforeAfter() {
           ref={wrapRef}
           onMouseDown={() => { isDragging.current = true; }}
           onTouchStart={() => { isDragging.current = true; }}
+          role="slider"
+          tabIndex="0"
+          aria-valuenow={Math.round(sliderPos)}
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-label="Before and after comparison slider"
+          onKeyDown={(e) => {
+            if (e.key === "ArrowLeft") setSliderPos(Math.max(0, sliderPos - 5));
+            if (e.key === "ArrowRight") setSliderPos(Math.min(100, sliderPos + 5));
+          }}
         >
           <img 
             className="ba-img" 

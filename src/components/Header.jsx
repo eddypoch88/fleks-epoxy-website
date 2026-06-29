@@ -106,15 +106,17 @@ export default function Header() {
           <Link className="btn btn-primary" href="#contact">
             {t("header.btnBook")}
           </Link>
-          <div
+          <button
             className="hamb"
             id="hamb"
+            aria-label="Toggle navigation menu"
+            type="button"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </button>
         </div>
       </div>
     </header>
