@@ -22,6 +22,17 @@ export default function Reviews() {
             </div>
           ))}
         </div>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "40px" }} className="reveal">
+          <a
+            className="btn btn-ghost"
+            href="https://g.page/r/CYLVAp7XCDdaEBM/review"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ padding: "12px 24px" }}
+          >
+            ⭐ {t("reviews.btnWrite")}
+          </a>
+        </div>
       </div>
     </section>
   );

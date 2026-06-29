@@ -40,6 +40,7 @@ export default function Footer() {
             </a>
             <a href="mailto:business@fleksepoxy.com">✉ business@fleksepoxy.com</a>
             <a href="https://www.google.com/search?q=Fleks+EpoxyFloring&stick=H4sIAAAAAAAAAONgU1I1qDBLNEhLtjQzTbZMNE4yNDO2MqgwTTQ2N7BIMbdMNTBKMbUwWsQq5JaTml2s4FqQX1HplpNflJmXDgAhMhoLPgAAAA" target="_blank" rel="noopener noreferrer">📍 Kota Kinabalu, Sabah</a>
+            <a href="https://g.page/r/CYLVAp7XCDdaEBM/review" target="_blank" rel="noopener noreferrer">⭐ {t("footer.writeReview")}</a>
           </div>
         </div>
         <div className="foot-bot">

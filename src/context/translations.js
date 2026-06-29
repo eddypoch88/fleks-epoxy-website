@@ -75,7 +75,8 @@ export const translations = {
         { h: "Launch pricing", s: "Special intro rates for our first projects across KK & Sabah. Lock it in early." },
         { h: "Free site visit", s: "We come to you to measure, advise & quote — zero obligation, no pressure." },
         { h: "Up to 2-year warranty", s: "Workmanship guarantee on every floor we install. We stand by our work." }
-      ]
+      ],
+      btnWrite: "Leave Us a Google Review →"
     },
     faq: {
       eyebrow: "Questions", title: "Epoxy flooring FAQ — Sabah", subtitle: "Everything Kota Kinabalu homeowners ask before booking.",
@@ -89,7 +90,8 @@ export const translations = {
     },
     footer: {
       desc: "Premium epoxy flooring for homes, offices & factories across Kota Kinabalu, Sabah. Seamless, glossy, up to 2-year warranty.",
-      quickLinks: "Quick links", contact: "Contact", rights: "All rights reserved.", licensed: "Licensed & insured · Proudly Malaysian 🇲🇾"
+      quickLinks: "Quick links", contact: "Contact", rights: "All rights reserved.", licensed: "Licensed & insured · Proudly Malaysian 🇲🇾",
+      writeReview: "Review us on Google"
     }
   },
   ms: {
@@ -168,7 +170,8 @@ export const translations = {
         { h: "Harga pelancaran", s: "Kadar istimewa untuk projek pertama kami di seluruh KK & Sabah. Tempah awal." },
         { h: "Lawatan tapak percuma", s: "Kami datang ukur, nasihat & beri sebut harga — tanpa obligasi, tiada paksaan." },
         { h: "Jaminan hingga 2 tahun", s: "Jaminan kerja untuk setiap lantai yang kami pasang. Kami yakin dengan kerja kami." }
-      ]
+      ],
+      btnWrite: "Beri Ulasan di Google →"
     },
     faq: {
       eyebrow: "Soalan", title: "Soalan Lazim Epoxy — Sabah", subtitle: "Soalan biasa sebelum tempahan di sekitar Kota Kinabalu.",
@@ -182,7 +185,8 @@ export const translations = {
     },
     footer: {
       desc: "Lantai epoxy premium untuk rumah, pejabat & kilang di seluruh Kota Kinabalu, Sabah. Tiada sambungan, berkilat, jaminan hingga 2 tahun.",
-      quickLinks: "Pautan Pemas", contact: "Hubungi", rights: "Hak cipta terpelihara.", licensed: "Berlesen & berinsurans · Bangga sebagai Rakyat Malaysia 🇲🇾"
+      quickLinks: "Pautan Pemas", contact: "Hubungi", rights: "Hak cipta terpelihara.", licensed: "Berlesen & berinsurans · Bangga sebagai Rakyat Malaysia 🇲🇾",
+      writeReview: "Ulas Kami di Google"
     }
   },
   zh: {
@@ -261,7 +265,8 @@ export const translations = {
         { h: "开业优惠价", s: "亚庇及沙巴首批项目享特别优惠价。趁早预订。" },
         { h: "免费上门测量", s: "我们上门测量、提供建议与报价——无任何义务，绝不强迫。" },
         { h: "最高2年质保", s: "每一个施工地板均提供质保。我们对自己的工作有信心。" }
-      ]
+      ],
+      btnWrite: "在 Google 留下评价 →"
     },
     faq: {
       eyebrow: "常见问题", title: "沙巴环氧树脂地板常见问题", subtitle: "亚庇房主预约前最常问的问题。",
@@ -275,7 +280,8 @@ export const translations = {
     },
     footer: {
       desc: "沙巴亚庇顶级的家庭、办公室和工厂环氧树脂地板。无缝、光泽，最高2年质保。",
-      quickLinks: "快速链接", contact: "联系我们", rights: "版权所有。", licensed: "持牌经营 · 骄傲的马来西亚品牌 🇲🇾"
+      quickLinks: "快速链接", contact: "联系我们", rights: "版权所有。", licensed: "持牌经营 · 骄傲的马来西亚品牌 🇲🇾",
+      writeReview: "在 Google 评价我们"
     }
   }
 };
