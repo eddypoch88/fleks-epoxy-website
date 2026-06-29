@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { trackWA } from "@/utils/trackWA";
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -42,6 +43,7 @@ export default function Hero() {
               href={waGeneral}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={trackWA}
             >
               <svg
                 viewBox="0 0 24 24"

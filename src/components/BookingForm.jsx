@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import { trackWA } from "@/utils/trackWA";
 
 export default function BookingForm() {
   const { t } = useLanguage();
@@ -91,6 +92,7 @@ export default function BookingForm() {
     msg += `💰 Anggaran Harga: ${getPriceEst(sqft)}\n`;
     
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
+    trackWA();
     setIsSent(true);
   };
 

@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { trackWA } from "@/utils/trackWA";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -88,6 +89,7 @@ export default function Header() {
             href={waGeneral}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={trackWA}
           >
             <svg
               viewBox="0 0 24 24"
