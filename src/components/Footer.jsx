@@ -43,7 +43,7 @@ export default function Footer() {
             <a href="https://g.page/r/CYLVAp7XCDdaEBM/review" target="_blank" rel="noopener noreferrer">⭐ {t("footer.writeReview")}</a>
             <div style={{ display: "flex", gap: "12px", marginTop: "16px" }}>
               <a
-                href="https://www.facebook.com/61591400041332/"
+                href="https://www.facebook.com/fleksepoxyflooring"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
