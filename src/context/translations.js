@@ -10,10 +10,10 @@ export const translations = {
       titleLine1: "Floors that",
       titleLine2: "look like ",
       titleHighlight: "glass.",
-      subtitle: "Seamless, glossy, ultra-durable epoxy flooring for bathrooms, homes, showrooms & factories across Kota Kinabalu & Sabah. 2–3 day install. Up to 2-year workmanship warranty.",
+      subtitle: "Seamless, glossy, ultra-durable epoxy flooring for bathrooms, homes, showrooms & factories across Kota Kinabalu & Sabah. 2–3 day install. 1-year workmanship warranty.",
       btnBook: "Book free site visit →",
       btnWa: "WhatsApp us",
-      stats: { n1: "Free", l1: "Site visit & quote", n2: "2–3 days", l2: "Fast install", n3: "Up to 2yr", l3: "Workmanship warranty" },
+      stats: { n1: "Free", l1: "Site visit & quote", n2: "2–3 days", l2: "Fast install", n3: "1-year", l3: "Workmanship warranty" },
       fcT: "100% Local",
       fcS: "Sabah-based team"
     },
@@ -74,9 +74,10 @@ export const translations = {
       items: [
         { h: "Launch pricing", s: "Special intro rates for our first projects across KK & Sabah. Lock it in early." },
         { h: "Free site visit", s: "We come to you to measure, advise & quote — zero obligation, no pressure." },
-        { h: "Up to 2-year warranty", s: "Workmanship guarantee on every floor we install. We stand by our work." }
+        { h: "1-year warranty", s: "Workmanship guarantee on every floor we install. We stand by our work." }
       ],
-      btnWrite: "Leave Us a Google Review →"
+      btnWrite: "Leave Us a Google Review →",
+      reviewHelp: "Every review helps our local business grow 🙏"
     },
     faq: {
       eyebrow: "Questions", title: "Epoxy flooring FAQ — Sabah", subtitle: "Everything Kota Kinabalu homeowners ask before booking.",
@@ -91,7 +92,7 @@ export const translations = {
       ]
     },
     footer: {
-      desc: "Premium epoxy flooring for homes, offices & factories across Kota Kinabalu, Sabah. Seamless, glossy, up to 2-year warranty.",
+      desc: "Premium epoxy flooring for homes, offices & factories across Kota Kinabalu, Sabah. Seamless, glossy, 1-year warranty.",
       quickLinks: "Quick links", contact: "Contact", rights: "All rights reserved.", licensed: "Licensed & insured · Proudly Malaysian 🇲🇾",
       writeReview: "Review us on Google"
     }
@@ -107,10 +108,10 @@ export const translations = {
       titleLine1: "Lantai yang",
       titleLine2: "bersinar macam ",
       titleHighlight: "kaca.",
-      subtitle: "Lantai epoxy tanpa jahitan, berkilat dan tahan lasak untuk bilik air, rumah, pejabat & kilang di sekitar Kota Kinabalu & Sabah. Siap dalam 2–3 hari. Jaminan hingga 2 tahun.",
+      subtitle: "Lantai epoxy tanpa jahitan, berkilat dan tahan lasak untuk bilik air, rumah, pejabat & kilang di sekitar Kota Kinabalu & Sabah. Siap dalam 2–3 hari. Jaminan kerja 1 tahun.",
       btnBook: "Tempah lawatan percuma →",
       btnWa: "WhatsApp kami",
-      stats: { n1: "Percuma", l1: "Lawatan & sebut harga", n2: "2–3 hari", l2: "Pemasangan pantas", n3: "Hingga 2thn", l3: "Jaminan kerja" },
+      stats: { n1: "Percuma", l1: "Lawatan & sebut harga", n2: "2–3 hari", l2: "Pemasangan pantas", n3: "1 tahun", l3: "Jaminan kerja" },
       fcT: "100% Tempatan",
       fcS: "Pasukan Sabah"
     },
@@ -171,9 +172,10 @@ export const translations = {
       items: [
         { h: "Harga pelancaran", s: "Kadar istimewa untuk projek pertama kami di seluruh KK & Sabah. Tempah awal." },
         { h: "Lawatan tapak percuma", s: "Kami datang ukur, nasihat & beri sebut harga — tanpa obligasi, tiada paksaan." },
-        { h: "Jaminan hingga 2 tahun", s: "Jaminan kerja untuk setiap lantai yang kami pasang. Kami yakin dengan kerja kami." }
+        { h: "Jaminan 1 tahun", s: "Jaminan kerja untuk setiap lantai yang kami pasang. Kami yakin dengan kerja kami." }
       ],
-      btnWrite: "Beri Ulasan di Google →"
+      btnWrite: "Beri Ulasan di Google →",
+      reviewHelp: "Setiap ulasan membantu bisnes tempatan kami berkembang 🙏"
     },
     faq: {
       eyebrow: "Soalan", title: "Soalan Lazim Epoxy — Sabah", subtitle: "Soalan biasa sebelum tempahan di sekitar Kota Kinabalu.",
@@ -188,7 +190,7 @@ export const translations = {
       ]
     },
     footer: {
-      desc: "Lantai epoxy premium untuk rumah, pejabat & kilang di seluruh Kota Kinabalu, Sabah. Tiada sambungan, berkilat, jaminan hingga 2 tahun.",
+      desc: "Lantai epoxy premium untuk rumah, pejabat & kilang di seluruh Kota Kinabalu, Sabah. Tiada sambungan, berkilat, jaminan 1 tahun.",
       quickLinks: "Pautan Pemas", contact: "Hubungi", rights: "Hak cipta terpelihara.", licensed: "Berlesen & berinsurans · Bangga sebagai Rakyat Malaysia 🇲🇾",
       writeReview: "Ulas Kami di Google"
     }
@@ -204,10 +206,10 @@ export const translations = {
       titleLine1: "光洁如镜的",
       titleLine2: "极致",
       titleHighlight: "地板.",
-      subtitle: "无缝、光泽、超耐用的环氧树脂地板，适用于亚庇及沙巴各地的浴室、住宅、展厅及工厂。2-3天安装。最高2年保修。",
+      subtitle: "无缝、光泽、超耐用的环氧树脂地板，适用于亚庇及沙巴各地的浴室、住宅、展厅及工厂。2-3天安装。1年施工质保。",
       btnBook: "免费上门估价 →",
       btnWa: "WhatsApp 我们",
-      stats: { n1: "免费", l1: "上门测量报价", n2: "2–3 天", l2: "快速安装", n3: "最高2年", l3: "施工质保" },
+      stats: { n1: "免费", l1: "上门测量报价", n2: "2–3 天", l2: "快速安装", n3: "1年", l3: "施工质保" },
       fcT: "100% 本地",
       fcS: "沙巴团队"
     },
@@ -268,9 +270,10 @@ export const translations = {
       items: [
         { h: "开业优惠价", s: "亚庇及沙巴首批项目享特别优惠价。趁早预订。" },
         { h: "免费上门测量", s: "我们上门测量、提供建议与报价——无任何义务，绝不强迫。" },
-        { h: "最高2年质保", s: "每一个施工地板均提供质保。我们对自己的工作有信心。" }
+        { h: "1年质保", s: "每一个施工地板均提供质保。我们对自己的工作有信心。" }
       ],
-      btnWrite: "在 Google 留下评价 →"
+      btnWrite: "在 Google 留下评价 →",
+      reviewHelp: "每一个评价都帮助我们的本地业务成长 🙏"
     },
     faq: {
       eyebrow: "常见问题", title: "沙巴环氧树脂地板常见问题", subtitle: "亚庇房主预约前最常问的问题。",
@@ -285,7 +288,7 @@ export const translations = {
       ]
     },
     footer: {
-      desc: "沙巴亚庇顶级的家庭、办公室和工厂环氧树脂地板。无缝、光泽，最高2年质保。",
+      desc: "沙巴亚庇顶级的家庭、办公室和工厂环氧树脂地板。无缝、光泽，1年质保。",
       quickLinks: "快速链接", contact: "联系我们", rights: "版权所有。", licensed: "持牌经营 · 骄傲的马来西亚品牌 🇲🇾",
       writeReview: "在 Google 评价我们"
     }
