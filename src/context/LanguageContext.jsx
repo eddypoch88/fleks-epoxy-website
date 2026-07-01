@@ -15,10 +15,6 @@ export function LanguageProvider({ children }) {
     }
   }, []);
 
-  useEffect(() => {
-    document.documentElement.lang = locale === "zh" ? "zh-CN" : locale;
-  }, [locale]);
-
   const handleSetLocale = (lang) => {
     setLocale(lang);
     localStorage.setItem("fleks-lang", lang);

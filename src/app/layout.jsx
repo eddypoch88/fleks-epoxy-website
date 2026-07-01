@@ -1,20 +1,166 @@
+import { Manrope } from "next/font/google";
 import "./globals.css";
-import { LanguageProvider } from "@/context/LanguageContext";
+import Script from "next/script";
+
+const manrope = Manrope({ subsets: ["latin"], display: "swap", preload: true });
 
 export const metadata = {
   metadataBase: new URL("https://fleksepoxy.com"),
-  title: "Epoxy Flooring Kota Kinabalu & Sabah | FLEKS Epoxy",
-  description: "Servis epoxy flooring di Kota Kinabalu dan Sabah untuk rumah, bilik air, garage, kedai dan ruang komersial. Lawatan tapak percuma dan sebut harga jelas.",
-  keywords: ["epoxy flooring Kota Kinabalu", "epoxy flooring Sabah", "lantai epoxy Sabah", "epoxy flake flooring", "bathroom epoxy flooring Sabah"],
-  alternates: { canonical: "/" },
+  title: "FLEKS Epoxy Flooring Kota Kinabalu | Lantai Epoxy Sabah",
+  description: "FLEKS — premium epoxy flooring & lantai epoxy in Kota Kinabalu, Sabah. Seamless, glossy, anti-slip floors for bathrooms, homes, offices & factories. 2–3 day install, 1-year warranty. Free site visit. WhatsApp us today.",
+  keywords: "epoxy flooring Kota Kinabalu, lantai epoxy Sabah, epoxy lantai KK, epoxy flooring Sabah, terrazzo epoxy, flake flooring, bathroom epoxy, lantai tandas epoxy, epoxy floor coating Malaysia",
+  alternates: {
+    canonical: "/",
+  },
   manifest: "/manifest.json",
-  openGraph: { title: "Epoxy Flooring Kota Kinabalu & Sabah | FLEKS Epoxy", description: "Lawatan tapak percuma, cadangan sistem ikut keadaan lantai, dan sebut harga jelas sebelum kerja.", url: "/", siteName: "FLEKS Epoxy", locale: "ms_MY", type: "website", images: [{ url: "/processed/hero-epoxy-desktop.webp", width: 1400, height: 788, alt: "Idea kemasan epoxy flake untuk ruang di Sabah" }] },
-  twitter: { card: "summary_large_image", title: "FLEKS Epoxy Kota Kinabalu & Sabah", description: "Servis epoxy flooring dengan lawatan tapak percuma dan sebut harga jelas.", images: ["/processed/hero-epoxy-desktop.webp"] },
-  robots: { index: true, follow: true }
+  openGraph: {
+    title: "FLEKS Epoxy Flooring — Kota Kinabalu & Sabah",
+    description: "Seamless, glossy, ultra-durable epoxy floors. 2–3 day install, 1-year warranty. Free site visit across Kota Kinabalu & Sabah.",
+    url: "https://fleksepoxy.com/",
+    siteName: "FLEKS Epoxy",
+    images: [
+      {
+        url: "https://fleksepoxy.com/processed/hero-epoxy-desktop.webp",
+        width: 1400,
+        height: 788,
+        alt: "FLEKS Epoxy Flooring",
+      },
+    ],
+    locale: "en_MY",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FLEKS Epoxy Flooring — Kota Kinabalu & Sabah",
+    description: "Seamless, glossy, ultra-durable epoxy floors. 2–3 day install, 1-year warranty.",
+    images: ["https://fleksepoxy.com/processed/hero-epoxy-desktop.webp"],
+  },
 };
 
-export const viewport = { width: "device-width", initialScale: 1, themeColor: "#0b2523" };
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
+import { LanguageProvider } from "@/context/LanguageContext";
+
+const GA_TRACKING_ID = "G-BL9ZBRE13E"; // Ganti dengan ID Google Analytics anda
+const FB_PIXEL_ID = "123456789012345"; // Ganti dengan ID FB Pixel anda
 
 export default function RootLayout({ children }) {
-  return <html lang="ms" suppressHydrationWarning><body><LanguageProvider>{children}</LanguageProvider></body></html>;
+  return (
+    <html lang="en" style={{ overflowX: "hidden" }}>
+      <head>
+        <link rel="preload" as="image" href="/processed/hero-epoxy-mobile.webp" media="(max-width: 760px)" type="image/webp" fetchPriority="high" />
+        <link rel="preload" as="image" href="/processed/hero-epoxy-desktop.webp" media="(min-width: 761px)" type="image/webp" fetchPriority="high" />
+        <Script src="https://unpkg.com/@phosphor-icons/web" strategy="lazyOnload" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="FLEKS Epoxy" />
+        <link rel="apple-touch-icon" href="/icon.png" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js').then(function(reg) {
+                    console.log('SW registered:', reg.scope);
+                  }).catch(function(err) {
+                    console.error('SW registration failed:', err);
+                  });
+                });
+              }
+            `
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "HomeAndConstructionBusiness",
+              "name": "FLEKS Epoxy Flooring Kota Kinabalu | Lantai Epoxy Sabah",
+              "image": "https://fleksepoxy.com/processed/hero-epoxy-desktop.webp",
+              "@id": "https://fleksepoxy.com/",
+              "url": "https://fleksepoxy.com/",
+              "telephone": "+60198822916",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Kota Kinabalu",
+                "addressRegion": "Sabah",
+                "addressCountry": "MY"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 5.9804,
+                "longitude": 116.0735
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "opens": "08:00",
+                "closes": "18:00"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "reviewCount": "3",
+                "bestRating": "5",
+                "worstRating": "1"
+              },
+              "sameAs": [
+                "https://g.page/r/CYLVAp7XCDdaEBM"
+              ]
+            })
+          }}
+        />
+
+        {/* Google Analytics Placeholder */}
+        {GA_TRACKING_ID !== "G-XXXXXXXXXX" && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} strategy="afterInteractive" />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_TRACKING_ID}');
+              `}
+            </Script>
+          </>
+        )}
+
+        {/* Facebook Pixel Placeholder */}
+        {FB_PIXEL_ID !== "123456789012345" && (
+          <Script id="fb-pixel" strategy="afterInteractive">
+            {`
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '${FB_PIXEL_ID}');
+              fbq('track', 'PageView');
+            `}
+          </Script>
+        )}
+      </head>
+      <body className={manrope.className} style={{ overflowX: "hidden", position: "relative" }}>
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
+      </body>
+    </html>
+  );
 }
