@@ -1,239 +1,51 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { trackWA } from "@/utils/trackWA";
+import WhatsAppIcon from "./icons/WhatsAppIcon";
 
 export default function BookingForm() {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
+  const services = t("booking.services");
+  const issues = t("booking.issues");
+  const [form, setForm] = useState({ name: "", location: "", service: services[0], size: "", issue: issues[0], date: "" });
 
-  // Provide a safe default using || or checking if t("booking.services") returns an array
-  const rawServices = t("booking.services");
-  const services = Array.isArray(rawServices) ? rawServices : ["Rumah", "Komersial"];
-
-  const [service, setService] = useState(services[0] || "Rumah");
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [sqft, setSqft] = useState(100);
-  const [bookDate, setBookDate] = useState("");
-  const [gpsStatus, setGpsStatus] = useState("");
-  const [isSent, setIsSent] = useState(false);
-  const [btnGpsClass, setBtnGpsClass] = useState("btn-loc");
-
-  const WA_NUMBER = "60146211263";
-
-  // Tarikh minimum = hari ini (tak boleh tempah tarikh lepas)
-  const todayStr = new Date().toISOString().split("T")[0];
-
-  // Pre-select servis bila client datang dari card harga (index 0 = Kediaman, 1 = Komersial)
   useEffect(() => {
-    try {
-      const idx = sessionStorage.getItem("fleks_service_idx");
-      if (idx !== null && services[Number(idx)]) {
-        setService(services[Number(idx)]);
-        sessionStorage.removeItem("fleks_service_idx");
-      }
-    } catch (e) {}
-  }, []);
+    setForm((current) => ({ ...current, service: services[0], issue: issues[0] }));
+  }, [locale, services, issues]);
 
-  const MIN_CHARGE = 1000;
-
-  const getPriceBreakdown = (sq) => {
-    const base = services.indexOf(service) === 1 ? 32 : 28;
-    const raw = sq * base;
-    const isMin = raw < MIN_CHARGE;
-    const low = isMin ? MIN_CHARGE : raw;
-    const high = Math.round(low * 1.08);
-    const range = `RM ${low.toLocaleString()}–${high.toLocaleString()}`;
-    const unit = t("booking.unit");
-    const breakdown = isMin
-      ? `${sq} ${unit} × RM${base} = RM${raw} → ${t("booking.calcMinSuffix")}`
-      : `${sq} ${unit} × RM${base}/${unit} = RM${raw.toLocaleString()}`;
-    return { range, breakdown, isMin };
-  };
-
-  const warrantyLabel = () => services.indexOf(service) === 1 ? t("booking.warranty2") : t("booking.warranty1");
-
-  const getPriceEst = (sq) => {
-    const { range, isMin } = getPriceBreakdown(sq);
-    return `${range}${isMin ? " (min)" : ""}`;
-  };
-
-  const getGps = () => {
-    setGpsStatus(t("booking.gpsFinding"));
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          const lat = pos.coords.latitude.toFixed(6);
-          const lng = pos.coords.longitude.toFixed(6);
-          // Store both Waze and Google Maps links
-          setAddress(`Waze: https://waze.com/ul?ll=${lat},${lng}&navigate=yes\n📍 Google Maps: https://www.google.com/maps?q=${lat},${lng}`);
-          setBtnGpsClass("btn-loc got");
-          setGpsStatus(`✓ ${t("booking.gpsGot")}`);
-        },
-        () => setGpsStatus(t("booking.gpsFail"))
-      );
-    } else {
-      setGpsStatus(t("booking.gpsNoSupport"));
-    }
-  };
-
-  const submitBooking = () => {
-    if (!name) return alert(t("booking.alertName"));
-    if (!phone) return alert(t("booking.alertPhone"));
-    
-    let msg = `*NEW BOOKING FLEKS*\n\n`;
-    msg += `👤 Nama: ${name}\n`;
-    msg += `📞 No Tel: +60${phone}\n`;
-    msg += `📍 Lokasi:\n${address || t("booking.waMsgLocUnfilled")}\n\n`;
-    msg += `🛠 Jenis: ${service}\n`;
-    msg += `📐 Saiz Lantai: ${sqft} ${t("booking.unit")}\n`;
-    msg += `📅 Tarikh Lawatan: ${bookDate || "Fleksibel / belum pilih"}\n`;
-    msg += `💰 Anggaran Harga: ${getPriceEst(sqft)}\n`;
-    
-    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
+  const update = (key) => (event) => setForm((current) => ({ ...current, [key]: event.target.value }));
+  const submit = (event) => {
+    event.preventDefault();
+    if (!form.name.trim()) return alert(t("booking.alertName"));
+    if (!form.location.trim()) return alert(t("booking.alertLocation"));
+    const copy = t("booking.message");
+    const message = [
+      copy.intro, "", `${copy.name}: ${form.name}`, `${copy.location}: ${form.location}`,
+      `${copy.space}: ${form.service}`, `${copy.size}: ${form.size || "-"}`,
+      `${copy.issue}: ${form.issue}`, `${copy.date}: ${form.date || t("booking.flexible")}`,
+      "", copy.photos
+    ].join("\n");
+    window.open(`https://wa.me/60146211263?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     trackWA();
-    setIsSent(true);
   };
 
   return (
-    <section id="contact" style={{ background: "var(--bg2)" }}>
-      <div className="wrap">
-        <div className="book-wrap reveal">
-          <div className="book-left">
-            <div className="eyebrow">{t("booking.eyebrow")}</div>
-            <h2>{t("booking.title")}</h2>
-            <p>{t("booking.subtitle")}</p>
-            <div className="book-feats">
-              <div className="book-feat"><span><i className="ph-light ph-map-pin"></i></span><div><b>{t("booking.f1T")}</b><br />{t("booking.f1S")}</div></div>
-              <div className="book-feat"><span><i className="ph-light ph-clock"></i></span><div><b>{t("booking.f2T")}</b><br />{t("booking.f2S")}</div></div>
-              <div className="book-feat"><span><i className="ph-light ph-currency-circle-dollar"></i></span><div><b>{t("booking.f3T")}</b><br />{t("booking.f3S")}</div></div>
-              <div className="book-feat"><span><i className="ph-light ph-ruler"></i></span><div><b>{t("booking.f4T")}</b><br />{t("booking.f4S")}</div></div>
-            </div>
+    <section id="contact" className="booking-section">
+      <div className="wrap booking-layout">
+        <div className="booking-copy reveal"><div className="eyebrow">{t("booking.eyebrow")}</div><h2>{t("booking.title")}</h2><p>{t("booking.subtitle")}</p><div className="booking-line" /></div>
+        <form className="booking-form reveal" onSubmit={submit}>
+          <div className="form-grid">
+            <label><span>{t("booking.nameLabel")}</span><input type="text" value={form.name} onChange={update("name")} placeholder={t("booking.namePh")} autoComplete="name" /></label>
+            <label><span>{t("booking.locationLabel")}</span><input type="text" value={form.location} onChange={update("location")} placeholder={t("booking.locationPh")} autoComplete="street-address" /></label>
+            <label><span>{t("booking.serviceLabel")}</span><select value={form.service} onChange={update("service")}>{services.map((item) => <option key={item}>{item}</option>)}</select></label>
+            <label><span>{t("booking.sizeLabel")}</span><input type="text" value={form.size} onChange={update("size")} placeholder={t("booking.sizePh")} inputMode="numeric" /></label>
+            <label><span>{t("booking.issueLabel")}</span><select value={form.issue} onChange={update("issue")}>{issues.map((item) => <option key={item}>{item}</option>)}</select></label>
+            <label><span>{t("booking.dateLabel")}</span><input type="date" value={form.date} min={new Date().toISOString().slice(0, 10)} onChange={update("date")} /></label>
           </div>
-          <div className="book-card">
-            {!isSent ? (
-              <div id="bookForm">
-                <div className="form-group">
-                  <div className="form-label">{t("booking.serviceLabel")}</div>
-                  <div className="chips">
-                    {services.map(s => (
-                      <div 
-                        key={s} 
-                        className={`chip ${service === s ? "active" : ""}`} 
-                        onClick={() => setService(s)}
-                      >
-                        {s}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="bName">{t("booking.nameLabel")}</label>
-                  <input className="form-input" id="bName" type="text" placeholder={t("booking.namePh")} value={name} onChange={(e) => setName(e.target.value)} />
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="bPhone">{t("booking.phoneLabel")}</label>
-                  <div className="phone-wrap">
-                    <span className="phone-prefix">+60</span>
-                    <input className="form-input phone-input" id="bPhone" type="tel" placeholder="11-2345 6789" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                  </div>
-                </div>
-                <div className="form-group">
-                  <div className="form-label" style={{ marginBottom: "6px" }}>{t("booking.locLabel")}</div>
-                  <p style={{ fontSize: "12px", color: "var(--muted)", marginBottom: "12px", lineHeight: "1.5" }}>
-                    {t("booking.locDesc")}
-                  </p>
-                  <button 
-                    className={btnGpsClass} 
-                    type="button" 
-                    onClick={getGps}
-                    style={{ width: "100%", padding: "12px", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px" }}
-                  >
-                    📍 {address ? t("booking.gpsGot") : t("booking.gpsBtn")}
-                  </button>
-                  {gpsStatus && <div style={{ fontSize: "12px", color: address ? "var(--primary)" : "var(--muted)", marginTop: "8px", fontWeight: "500", textAlign: "center" }}>{gpsStatus}</div>}
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="bDate">{t("booking.dateLabel")}</label>
-                  <div className="date-wrap">
-                    <input
-                      className={`form-input form-date ${bookDate ? "has-val" : ""}`}
-                      id="bDate"
-                      type="date"
-                      min={todayStr}
-                      value={bookDate}
-                      onChange={(e) => setBookDate(e.target.value)}
-                    />
-                    {!bookDate && <span className="date-ph">{t("booking.datePh")}</span>}
-                  </div>
-                </div>
-                <div className="form-group">
-                  <div className="form-label">{t("booking.sizeLabel")}: <span>{sqft} {t("booking.unit")}</span></div>
-                  <div className="size-row">
-                    <button 
-                      type="button" 
-                      aria-label="Decrease size"
-                      onClick={() => setSqft(Math.max(30, sqft - 1))}
-                      style={{ width: "32px", height: "32px", borderRadius: "50%", border: "1px solid var(--line)", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", fontWeight: "600", cursor: "pointer", color: "var(--muted)" }}
-                    >
-                      -
-                    </button>
-                    <input type="range" aria-label="Adjust floor size" min="30" max="1000" value={sqft} step="1" onChange={(e) => setSqft(Number(e.target.value))} />
-                    <button 
-                      type="button" 
-                      aria-label="Increase size"
-                      onClick={() => setSqft(Math.min(1000, sqft + 1))}
-                      style={{ width: "32px", height: "32px", borderRadius: "50%", border: "1px solid var(--line)", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", fontWeight: "600", cursor: "pointer", color: "var(--muted)" }}
-                    >
-                      +
-                    </button>
-                    <div className="size-val accent">{sqft} {t("booking.unit")}</div>
-                  </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", color: "var(--muted2)", marginTop: "4px" }}>
-                    <span>{t("booking.sizeS1")}</span><span>{t("booking.sizeS2")}</span>
-                  </div>
-                </div>
-                <div className="price-est" style={{ flexDirection: "column", alignItems: "stretch", gap: "12px" }}>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-                    <div className="pe-label">{t("booking.priceLabel")}</div>
-                    <div className="pe-range" style={{ marginTop: "4px", whiteSpace: "normal" }}>{getPriceBreakdown(sqft).range}</div>
-                  </div>
-                  <div style={{ background: "rgba(0,179,164,0.07)", borderRadius: "8px", padding: "10px 12px", fontSize: "12px", color: "var(--muted)", lineHeight: "1.6" }}>
-                    <div style={{ fontWeight: "600", color: "var(--accent)", marginBottom: "4px" }}>{t("booking.calcTitle")}</div>
-                    <div>{getPriceBreakdown(sqft).breakdown}</div>
-                    <div style={{ marginTop: "4px", color: "var(--muted2)" }}>
-                      {getPriceBreakdown(sqft).isMin
-                        ? <>{t("booking.calcMinNote1")} <b>RM1,000</b> {t("booking.calcMinNote2")} {warrantyLabel()}.</>
-                        : <>{t("booking.calcInclNote")} {warrantyLabel()}.</>
-                      }
-                    </div>
-                  </div>
-                </div>
-                <div style={{ marginTop: "20px" }}>
-                  <button className="btn-submit" onClick={submitBooking}>
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style={{ marginRight: "8px", display: "inline-block", verticalAlign: "middle" }}>
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.554 4.122 1.522 5.854L.057 23.882l6.19-1.438A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.371l-.36-.213-3.676.853.88-3.574-.234-.369A9.818 9.818 0 1112 21.818z" />
-                    </svg> {t("booking.btnSubmit")}
-                  </button>
-                  <p style={{ textAlign: "center", fontSize: "12px", color: "var(--muted2)", marginTop: "10px" }}>
-                    {t("booking.submitDesc")}
-                  </p>
-                </div>
-              </div>
-            ) : (
-              <div className="book-sent" style={{ display: "block" }}>
-                <div className="tick">✅</div>
-                <h3>{t("booking.sentTitle")}</h3>
-                <p>{t("booking.sentDesc")}</p>
-                <button className="btn-submit" style={{ marginTop: "20px", maxWidth: "240px", marginLeft: "auto", marginRight: "auto" }} onClick={() => setIsSent(false)}>
-                  {t("booking.btnNew")}
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
+          <button className="btn btn-primary form-submit" type="submit"><WhatsAppIcon /> {t("booking.btnSubmit")}</button>
+          <p className="form-helper">{t("booking.helper")}</p>
+        </form>
       </div>
     </section>
   );
